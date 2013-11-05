@@ -1,0 +1,16 @@
+<form action="<%= recipes_url %>" method="POST">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+	<label for="recipe_name">Brew name:</label>
+	<input type="text" name="recipe[name]" value="" id="recipe_name">
+	<br>
+	
+	<label for="ingredient_name">Ingredient: </label>
+	<input type="text" name="ingredients[1][name]" value="" id="ingredient_1_name">
+
+	<label for="ingredient_time">Time to add: </label>
+	<input type="text" name="ingredients[1][time]" value="" id="ingredient_1_time">
+	
+
+	<p><input type="submit" value="Submit Recipe"></p>
+</form>
