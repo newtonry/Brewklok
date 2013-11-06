@@ -3,5 +3,4 @@ class Ingredient < ActiveRecord::Base
   belongs_to :recipe
   
   validates :name, :time, :recipe, presence: true
-  
 end

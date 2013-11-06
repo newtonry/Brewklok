@@ -14,14 +14,11 @@ class RecipesController < ApplicationController
   end
   
   def create
-    @recipe = Recipe.new(params[:recipe])
-    
+    @recipe = Recipe.new(params[:recipe])    
     @recipe.ingredients.new(params[:ingredients].values)
     
-    # params[:ingredients].each do |ingredient|
-    #   @recipe.ingredients.create(ingredient)
-    # end
-    
+    @recipe.user_id = current_user.id if logged_in?
+        
     if @recipe.save
       redirect_to recipes_url
     else

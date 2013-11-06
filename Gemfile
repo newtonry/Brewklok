@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 1.2'
 #attr_accessible
 gem 'protected_attributes'
 
+gem 'bcrypt-ruby', :require => 'bcrypt'
 
 group :development do
   gem 'binding_of_caller'

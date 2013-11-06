@@ -6,7 +6,9 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
+<%= render partial: 'shared/navbar' %>
 <body>
+	<%= current_user.username if logged_in? %>
 	<% if !flash[:errors].nil? %>
 		<% flash[:errors].each do |error| %>
 			<li><%= error %></li>
