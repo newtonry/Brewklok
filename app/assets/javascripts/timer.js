@@ -33,6 +33,7 @@
 	
 	Timer.prototype.start = function(element) {
 		var that = this;
+		that.updateElement(element);
 		setInterval(function() { that.updateElement(element); }, 1000);
 		
 	};

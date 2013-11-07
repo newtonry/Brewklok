@@ -5,8 +5,13 @@ class RecipesController < ApplicationController
   end
   
   def show
-    @recipe = Recipe.find(params[:id])
-    render :show
+    @recipe = Recipe.includes(:ingredients).find(params[:id])
+
+    # render :show
+    respond_to do |format|
+      format.html 
+      format.json { render :json => @recipe, include: :ingredients }
+    end
   end
   
   def new
@@ -28,6 +33,7 @@ class RecipesController < ApplicationController
   end
 
   def run
+    @recipe = Recipe.find(params[:id])
     render :run
   end
 

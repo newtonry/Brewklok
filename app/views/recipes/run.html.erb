@@ -1,12 +1,16 @@
-<button onClick="t.timeDifference();">Time diff</button>
-<h1 id='display-timer'>Timer</h1>
+<button onClick="t.start('#display-timer');">Start Timer</button>
+<h1 id='display-timer'>00:00:00</h1>
+
+<!-- <p></p> -->
 
 <script>
 // debugger
 var t = new Timer;
+var recipe = loadRecipe(12, function(){} );
+
 // t.timeNow();
 // t.updateElement("#display-timer");
-t.start("#display-timer");
+// <%= @recipe.to_json %>);
+// var recipe = (<%= @recipe.to_json.html_safe %>);
+// var ingredients = (<%= @ingredients.to_json.html_safe %>)
 </script>
-
-
