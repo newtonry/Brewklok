@@ -4,7 +4,6 @@ class RecipesController < ApplicationController
     render :index
   end
   
-  
   def show
     @recipe = Recipe.find(params[:id])
     render :show
@@ -26,10 +25,10 @@ class RecipesController < ApplicationController
       flash[:errors] = @recipe.errors.full_messages
       render :new      
     end
-  
-  
+  end
 
-
+  def run
+    render :run
   end
 
 end
