@@ -305,6 +305,8 @@ html {
 }
 
 body {
+	background: url('/assets/linedpaper.png');
+	background-repeat:repeat;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
@@ -1907,7 +1909,8 @@ output {
   line-height: 1.428571429;
   color: #555555;
   vertical-align: middle;
-  background-color: #ffffff;
+/*  background-color: #ffffff;*/
+	background-color: rgba(255,255,255,0.5);
   background-image: none;
   border: 1px solid #cccccc;
   border-radius: 4px;
@@ -4306,7 +4309,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 @media (min-width: 768px) {
   .navbar {
-    border-radius: 4px;
+/*    border-radius: 4px;*/
   }
 }
 
@@ -5590,7 +5593,10 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel-body {
-  padding: 15px;
+/*	background-color: rgba(255,255,255,0);
+*/
+	background-color: rgba(255,255,255,0.20);	
+	padding: 15px;
 }
 
 .panel-body:before,
