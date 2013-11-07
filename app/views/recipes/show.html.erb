@@ -1,0 +1,42 @@
+<h2><%= @recipe.name %></h2>
+<% if !@recipe.notes.nil? %>
+	<h5><%= @recipe.notes %></h5>
+<% end %>
+
+<canvas id="myCanvas" width="800" height="100"
+style="border:1px solid #000000;">
+</canvas>
+
+<script>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.moveTo(0,50);
+ctx.lineTo(800,50);
+ctx.stroke();
+
+var markCanvas = function(time, name) {
+	var ctx=c.getContext("2d");
+	var xPos = 800 * (time/60);
+
+	ctx.beginPath();
+	ctx.arc(xPos,50,10,0,2*Math.PI);
+
+	ctx.stroke();
+};
+</script>
+
+<h3>Ingredients</h3>
+<% @recipe.ingredients.each do |ingredient| %>
+	<div class="panel panel-default">
+	  <div class="panel-heading"><%= ingredient.name %></div>
+	  <div class="panel-body">
+	    <li><%= ingredient.amount %></li>
+	    <li><%= ingredient.notes %></li>
+
+	  </div>
+	</div>
+<script>
+	markCanvas(<%= ingredient.time %>, "<%= ingredient.name %>");
+</script>
+
+<% end %>

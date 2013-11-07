@@ -11,7 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require bootstrap
+//= require jquery_ujs
+//= require easeljs-0.7.0.min
+//= require underscore-min
+//= require_tree ./templates
 //= require turbolinks
 //= require_tree .

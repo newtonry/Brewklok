@@ -1,8 +1,8 @@
 <h2>Brew Recipes</h2>
-	<% @recipes.each do |recipe| %>
-		<ul><%= recipe.name %>
-		<% recipe.ingredients.each do |ingredient| %>
-			<li><%= ingredient.name %> - at <%= ingredient.time %> min</li>
-		<% end %>
-		</ul>
+<% @recipes.each do |recipe| %>
+	<ul><a href="<%= recipe_url(recipe) %>"><%= recipe.name %></a>
+	<% recipe.ingredients.each do |ingredient| %>
+		<li><%= ingredient.name %> - at <%= ingredient.time %> min</li>
 	<% end %>
+	</ul>
+<% end %>

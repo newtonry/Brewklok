@@ -1,24 +1,56 @@
-<form action="<%= recipes_url %>" method="POST">
-	<%= render partial: 'shared/auth_token'%>
+<div class="col-md-6">
+	<form action="<%= recipes_url %>" method="POST" role="form" id='recipe-form'>
+		<%= render partial: 'shared/auth_token'%>
 
-	<label for="recipe_name">Brew name: </label>
-	<input type="text" name="recipe[name]" value="" id="recipe_name">
-	<br>
+		<h2>Brew Details</h2>
+	  <div class="form-group">
+			<label for="recipe_name">Brew name: </label>
+			<input class="form-control" type="text" name="recipe[name]" value="" id="recipe_name">
+			<br>
+		</div>
+
+		<h2>Ingredients</h2>
+		
+		<script>
+		var ingredientId = 0;
+		addIngredientForm();
+		//should use a JST template later
+		//refers to templates/ingredient_form.js variable
+		
+			// $('#recipe-form').append(ingredientFields({id : ingredientId}));
+		</script>
+
+	  <!-- <div class="form-group">	
+			<label for="ingredient_name">Ingredient: </label>
+			<input class="form-control" type="text" name="ingredients[1][name]" value="" id="ingredient_1_name">
+
+	  <div class="form-group">
+			<label for="ingredient_time">Time to add: </label>
+			<input class="form-control" type="text" name="ingredients[1][time]" value="" id="ingredient_1_time">
+
+	  <div class="form-group">
+			<label for="ingredient_note">Additional Note: </label>
+		<textarea class="form-control" name="ingredients[1][note]" value="" id="ingredient_1_note"></textarea> -->
+
+
+		<!-- <br	>
+	  <div class="form-group">
+			<label for="ingredient_name">Ingredient: </label>
+			<input class="form-control" type="text" name="ingredients[2][name]" value="" id="ingredient_2_name">
 	
-	<label for="ingredient_name">Ingredient: </label>
-	<input type="text" name="ingredients[1][name]" value="" id="ingredient_1_name">
 
-	<label for="ingredient_time">Time to add: </label>
-	<input type="text" name="ingredients[1][time]" value="" id="ingredient_1_time">
 
-	<br	>
-	<label for="ingredient_name">Ingredient: </label>
-	<input type="text" name="ingredients[2][name]" value="" id="ingredient_2_name">
+	  <div class="form-group">
+			<label for="ingredient_time">Time to add: </label>
+			<input class="form-control" type="text" name="ingredients[2][time]" value="" id="ingredient_2_time">
 
-	<label for="ingredient_time">Time to add: </label>
-	<input type="text" name="ingredients[2][time]" value="" id="ingredient_2_time">
 
+	  <div class="form-group">
+			<label for="ingredient_note">Additional Note: </label>
+		<textarea class="form-control" name="ingredients[2][note]" value="" id="ingredient_2_note"></textarea>
+ -->
 	
-
-	<p><input type="submit" value="Submit Recipe"></p>
-</form>
+			<button onClick="addIngredientForm();return false;">+</button> <br><br><br>
+		<p><input type="submit" value="Submit Recipe" id="submit_recipe"></p>
+	</form>
+</div>

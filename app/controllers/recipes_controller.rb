@@ -1,12 +1,13 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.reverse
     render :index
   end
   
   
   def show
-    
+    @recipe = Recipe.find(params[:id])
+    render :show
   end
   
   def new

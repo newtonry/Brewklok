@@ -8,15 +8,15 @@
 </head>
 <%= render partial: 'shared/navbar' %>
 <body>
-	<%= current_user.username if logged_in? %>
-	<% if !flash[:errors].nil? %>
-		<% flash[:errors].each do |error| %>
-			<li><%= error %></li>
+	<div class="container">
+		<%= current_user.username if logged_in? %>	
+		<% if !flash[:errors].nil? %>
+			<% flash[:errors].each do |error| %>
+				<li><%= error %></li>
+			<% end %>
 		<% end %>
-	<% end %>
 
-
-<%= yield %>
-
+		<%= yield %>
+	</div>
 </body>
 </html>
