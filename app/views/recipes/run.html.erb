@@ -1,12 +1,13 @@
-<button onClick="t.start('#display-timer');">Start Timer</button>
+<button onClick="bh.start('#display-timer', recipe);">Start Timer</button>
 <h1 id='display-timer'>00:00:00</h1>
-
+<ul id='instruction-list'>Instruction List</ul>
 <!-- <p></p> -->
 
 <script>
 // debugger
-var t = new Timer;
-var recipe = loadRecipe(12, function(){} );
+var bh = new BrewHandler();
+var recipe;
+loadRecipe(<%= @recipe.id %>, function(resp){ recipe = resp; });
 
 // t.timeNow();
 // t.updateElement("#display-timer");

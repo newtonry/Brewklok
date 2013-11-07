@@ -4,11 +4,7 @@ var loadRecipe = function(id, callback)
 		url: "../" + id,
 		type: 'GET',
 		dataType: 'json',
-		success: function(resp) {
-			debugger
-			callback();
-		
-		},
+		success: callback,
 		
 		error: function(resp){debugger}
 		

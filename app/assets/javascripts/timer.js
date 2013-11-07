@@ -5,17 +5,23 @@
 	};
 		
 	Timer.prototype.timeNow = function() {
-		alert(new Date().getTime());
+		// alert(new Date().getTime());
 	};
 
 	//returns a string of the time difference
 	Timer.prototype.timeDifference = function() {
-		var difference = new Date((new Date().getTime() - this.startTime));
-		var HH = this.convertToTwoDigits(difference.getHours() - 16);//find out why this starts at 16
-		var MM = this.convertToTwoDigits(difference.getMinutes());
-		var SS = this.convertToTwoDigits(difference.getSeconds());
-		return ( HH + ":" + MM + ":" + SS);
+		return new Date().getTime() - this.startTime;
 	};
+	
+	Timer.prototype.timeToString = function(unixTime) {
+		var time = new Date(unixTime);
+	
+		var HH = this.convertToTwoDigits(time.getHours() - 16);//find out why this starts at 16
+		var MM = this.convertToTwoDigits(time.getMinutes());
+		var SS = this.convertToTwoDigits(time.getSeconds());
+		
+		return (HH + ":" + MM + ":" + SS);		
+	}
 	
 	//formats numbers so they have 2 digits
 	Timer.prototype.convertToTwoDigits = function(digits) {
@@ -28,15 +34,17 @@
 	}
 	
 	Timer.prototype.updateElement = function(element) {
-		$(element).html(this.timeDifference()); 
+		$(element).html(this.timeToString(this.timeDifference())); 
 	};
 	
 	Timer.prototype.start = function(element) {
 		var that = this;
-		that.updateElement(element);
+		
+		this.startTime = new Date().getTime()
+		// this.updateElement(element);
+
 		setInterval(function() { that.updateElement(element); }, 1000);
 		
 	};
-	
 	
 })(this);
