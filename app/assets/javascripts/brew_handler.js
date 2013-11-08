@@ -40,7 +40,8 @@
 	
 	BrewHandler.prototype.process = function(ingredients) {
 		for(var i = 0; i < ingredients.length; i++) {
-			$("#instruction-list").append("<li>" + ingredients[i].name + "</li>");
+			$("#currentIngredients").append("<li>" + ingredients[i].name + "</li>");
+			// $("#currentIngredients").fadeIn("<li>" + ingredients[i].name + "</li>");			
 		}
 	}
 

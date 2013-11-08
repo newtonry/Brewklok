@@ -58,8 +58,6 @@ var makeRecipeUneditable = function(event) {
 	$("#save-button").hide('fast');	
 	$("#edit-button").show('fast');
 	$("#ingredient-table").toggleClass("highlighted-table");
-	
-	
 }
 
 
