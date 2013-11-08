@@ -11,10 +11,15 @@
 style="border:1px solid #000000;">
 </canvas>
 
-<script>initializeCanvas();</script>
 
-<h3>Ingredients</h3>
-<table class="table table-striped">
+<h3>
+	Ingredients 
+	<i class="glyphicon glyphicon-edit" id="edit-button" data-recipeid="<%= @recipe.id %>"
+		onClick="makeRecipeEditable(event);"></i>
+		<button class="btn btn-success" id="save-button" onClick="saveRecipe();">Save</button>
+</h3>
+
+<table class="table" id="ingredient-table">
 	<thead>
 		<tr>
 			<th>Time</th>
@@ -26,14 +31,18 @@ style="border:1px solid #000000;">
 
 	<tbody>
 		<% @recipe.ingredients.each do |ingredient| %>
-		<tr>
-			<td><%= ingredient.time %></td>
-			<td><%= ingredient.name %></td>
-			<td><%= ingredient.amount %></td>
-			<td><%= ingredient.notes %></td>
+		<tr class='ingredient-listing'>
+			<td class='ingredient-attr'><%= ingredient.time %></td>
+			<td class='ingredient-attr'><%= ingredient.name %></td>
+			<td class='ingredient-attr'><%= ingredient.amount %></td>
+			<td class='ingredient-attr'><%= ingredient.notes %></td>
 		</tr>
 	
 		<script>markCanvas(<%= ingredient.time %>, "<%= ingredient.name %>");</script>
 		<% end %>
 	</tbody>	
 </table>
+
+<script>
+initializeCanvas();
+	</script>

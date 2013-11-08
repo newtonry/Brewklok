@@ -1,23 +1,23 @@
-<div class="col-md-6">
-	<form action="<%= recipes_url %>" method="POST" role="form" id='recipe-form'>
-		<%= render partial: 'shared/auth_token'%>
+	<div class="col-md-6">
+		<form action="<%= recipes_url %>" method="POST" role="form" id='recipe-form'>
+			<%= render partial: 'shared/auth_token'%>
 
-		<h2>Brew Details</h2>
-	  <div class="form-group">
-			<label for="recipe_name">Brew name: </label>
-			<input class="form-control" type="text" name="recipe[name]" value="" id="recipe_name">
-			<br>
-		</div>
+			<h2>Brew Details</h2>
+		  <div class="form-group">
+				<label for="recipe_name">Brew name: </label>
+				<input class="form-control" type="text" name="recipe[name]" value="" id="recipe_name">
+				<br>
+			</div>
 
-		<h2>Ingredients</h2>
+			<h2>Ingredients</h2>
 		
-		<script>
-			var ingredientId = 0;
-			addIngredientForm();
-			//should use a JST template later
-			//refers to templates/ingredient_form.js variable
-		</script>
-			<button onClick="addIngredientForm();return false;">+</button> <br><br><br>
-		<p><input class="btn btn-success" type="submit" value="Submit Recipe" id="submit_recipe"></p>
-	</form>
-</div>
+			<script>
+				var ingredientId = 0;
+				addIngredientForm();
+				//should use a JST template later
+				//refers to templates/ingredient_form.js variable
+			</script>
+				<button onClick="addIngredientForm();return false;">+</button> <br><br><br>
+			<p><input class="btn btn-success" type="submit" value="Submit Recipe" id="submit_recipe"></p>
+		</form>
+	</div>
