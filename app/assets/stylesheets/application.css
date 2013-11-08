@@ -20,6 +20,12 @@
 	display: none;	
 }
 
+#front-page-jumbo {
+	background: url('/assets/beer1-narrow.png');
+	color: white;
+	margin-top: -20px;
+}
+
 .highlighted-table{
   border-color: #66afe9;
   outline: 0;

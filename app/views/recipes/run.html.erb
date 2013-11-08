@@ -1,21 +1,23 @@
-<div class="jumbotron">
-  <p><a class="btn btn btn-success btn-lg center-block" onClick="bh.start('#display-timer', recipe);" role="button">Start Timer</a></p>
-	<h1 id="display-timer" class="text-center">00:00:00</h1>
+<div class='container'>
+	<div class="jumbotron">
+	  <p><a class="btn btn btn-success btn-lg center-block" onClick="bh.start('#display-timer', recipe);" role="button">Start Timer</a></p>
+		<h1 id="display-timer" class="text-center">00:00:00</h1>
+	</div>
+
+	<!-- <ul id='instruction-list'>Instruction List</ul> -->
+	<!-- <p></p> -->
+
+	<div class="row" style="text-align: center">
+	  <div class="col-md-3" id="pastIngredients"><h2>Past</h2></div>
+	  <div class="col-md-6" id="currentIngredients"><h2>Current</h2></div>
+	  <div class="col-md-3" id="futureIngredients"><h2>Future</h2></div>
+	</div>
+
+
+
+	<script>
+		var bh = new BrewHandler();
+		var recipe;
+		loadRecipe(<%= @recipe.id %>, function(resp){ recipe = resp; });
+	</script>
 </div>
-
-<!-- <ul id='instruction-list'>Instruction List</ul> -->
-<!-- <p></p> -->
-
-<div class="row" style="text-align: center">
-  <div class="col-md-3" id="pastIngredients"><h2>Past</h2></div>
-  <div class="col-md-6" id="currentIngredients"><h2>Current</h2></div>
-  <div class="col-md-3" id="futureIngredients"><h2>Future</h2></div>
-</div>
-
-
-
-<script>
-	var bh = new BrewHandler();
-	var recipe;
-	loadRecipe(<%= @recipe.id %>, function(resp){ recipe = resp; });
-</script>

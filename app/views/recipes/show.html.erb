@@ -1,48 +1,48 @@
-<div class='row'>
-	<h2 class="col-md-6"><%= @recipe.name %>
-		<a href="<%= run_recipe_url(@recipe) %>"><button class="btn btn-warning" >Brew!</button></a>
-	</h2>
-</div>
-<% if !@recipe.notes.nil? %>
-	<h5><%= @recipe.notes %></h5>
-<% end %>
+<div class='container'>
+	<div class='row'>
+		<h2 class="col-md-6"><%= @recipe.name %>
+			<a href="<%= run_recipe_url(@recipe) %>"><button class="btn btn-warning" >Brew!</button></a>
+		</h2>
+	</div>
+	<% if !@recipe.notes.nil? %>
+		<h5><%= @recipe.notes %></h5>
+	<% end %>
 
-<canvas id="myCanvas" width="1000" height="100"
-style="border:1px solid #000000;">
-</canvas>
+	<canvas id="myCanvas" width="1000" height="100"
+	style="border:1px solid #000000;">
+	</canvas>
 
+	<h3>
+		Ingredients 
+		<i class="glyphicon glyphicon-edit" id="edit-button" data-recipeid="<%= @recipe.id %>"
+			onClick="makeRecipeEditable(event);"></i>
+			<button class="btn btn-success" id="save-button" onClick="saveRecipe();">Save</button>
+	</h3>
 
-<h3>
-	Ingredients 
-	<i class="glyphicon glyphicon-edit" id="edit-button" data-recipeid="<%= @recipe.id %>"
-		onClick="makeRecipeEditable(event);"></i>
-		<button class="btn btn-success" id="save-button" onClick="saveRecipe();">Save</button>
-</h3>
+	<table class="table" id="ingredient-table">
+		<thead>
+			<tr>
+				<th>Time</th>
+				<th>Ingredient</th>
+				<th>Amount</th>
+				<th>Notes</th>
+			</tr>
+		</thead>
 
-<table class="table" id="ingredient-table">
-	<thead>
-		<tr>
-			<th>Time</th>
-			<th>Ingredient</th>
-			<th>Amount</th>
-			<th>Notes</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<% @recipe.ingredients.each do |ingredient| %>
-		<tr class='ingredient-listing'>
-			<td class='ingredient-attr'><%= ingredient.time %></td>
-			<td class='ingredient-attr'><%= ingredient.name %></td>
-			<td class='ingredient-attr'><%= ingredient.amount %></td>
-			<td class='ingredient-attr'><%= ingredient.notes %></td>
-		</tr>
+		<tbody>
+			<% @recipe.ingredients.each do |ingredient| %>
+			<tr class='ingredient-listing'>
+				<td class='ingredient-attr'><%= ingredient.time %></td>
+				<td class='ingredient-attr'><%= ingredient.name %></td>
+				<td class='ingredient-attr'><%= ingredient.amount %></td>
+				<td class='ingredient-attr'><%= ingredient.notes %></td>
+			</tr>
 	
-		<script>markCanvas(<%= ingredient.time %>, "<%= ingredient.name %>");</script>
-		<% end %>
-	</tbody>	
-</table>
-
-<script>
-initializeCanvas();
-	</script>
+			<script>markCanvas(<%= ingredient.time %>, "<%= ingredient.name %>");</script>
+			<% end %>
+		</tbody>	
+	</table>
+</div>
+	<script>
+	initializeCanvas();
+		</script>

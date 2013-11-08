@@ -1,4 +1,6 @@
-<h2><%= @user.username %></h2>
-	<% @user.recipes.reverse.each do |recipe| %>
-		<li><%= recipe.name %></li>
-	<% end %>
+<div class='container'>
+	<h2><%= @user.username %></h2>
+		<% @user.recipes.reverse.each do |recipe| %>
+			<li><%= recipe.name %></li>
+		<% end %>
+	</div>
