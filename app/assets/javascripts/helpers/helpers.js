@@ -1,6 +1,4 @@
 var addIngredientForm = function() {
-	ingredientId +=1;
-	// $('#recipe-form').append(ingredientFields({id : ingredientId}));
-	
+	ingredientId +=1;	
 	$(ingredientFields({id : ingredientId})).insertBefore( "#submit_recipe" );
 }

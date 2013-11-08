@@ -1,5 +1,8 @@
-<button onClick="bh.start('#display-timer', recipe);">Start Timer</button>
-<h1 id='display-timer'>00:00:00</h1>
+<div class="jumbotron">
+  <p><a class="btn btn btn-success btn-lg center-block" onClick="bh.start('#display-timer', recipe);" role="button">Start Timer</a></p>
+	<h1 id="display-timer" class="text-center">00:00:00</h1>
+</div>
+
 <ul id='instruction-list'>Instruction List</ul>
 <!-- <p></p> -->
 
@@ -9,9 +12,4 @@ var bh = new BrewHandler();
 var recipe;
 loadRecipe(<%= @recipe.id %>, function(resp){ recipe = resp; });
 
-// t.timeNow();
-// t.updateElement("#display-timer");
-// <%= @recipe.to_json %>);
-// var recipe = (<%= @recipe.to_json.html_safe %>);
-// var ingredients = (<%= @ingredients.to_json.html_safe %>)
 </script>

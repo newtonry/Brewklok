@@ -1,4 +1,8 @@
-<h2><%= @recipe.name %></h2>
+<div class='row'>
+	<h2 class="col-md-6"><%= @recipe.name %>
+		<a href="<%= run_recipe_url(@recipe) %>"><button class="btn btn-warning" >Brew!</button></a>
+	</h2>
+</div>
 <% if !@recipe.notes.nil? %>
 	<h5><%= @recipe.notes %></h5>
 <% end %>
@@ -7,43 +11,29 @@
 style="border:1px solid #000000;">
 </canvas>
 
-<script>
-var c=document.getElementById("myCanvas");
-var ctx=c.getContext("2d");
-ctx.moveTo(0,50);
-ctx.lineTo(1000,50);
-ctx.stroke();
-
-var markCanvas = function(time, name) {
-	var ctx=c.getContext("2d");
-	var xPos = 800 * (time/60);
-
-	ctx.beginPath();
-	ctx.arc(xPos + 100 ,50,10,0,2*Math.PI);
-
-	ctx.stroke();
-};
-</script>
+<script>initializeCanvas();</script>
 
 <h3>Ingredients</h3>
-<% @recipe.ingredients.each do |ingredient| %>
-	<div class="panel panel-default" id="ingredient<%=ingredient.id%>">
-	  <div class="panel-heading"><%= ingredient.name %> <i onClick="editIngredient(event);" class="glyphicon glyphicon-edit" data-ingredientId=<%= ingredient.id %>></i></div>
-	  <div class="panel-body">
-	    <li><%= ingredient.amount %></li>
-	    <li><%= ingredient.notes %></li>			
-	  </div>
-	</div>
-<script>
-	markCanvas(<%= ingredient.time %>, "<%= ingredient.name %>");
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Time</th>
+			<th>Ingredient</th>
+			<th>Amount</th>
+			<th>Notes</th>
+		</tr>
+	</thead>
 
-	var editIngredient = function(event) {
-		alert("make it content editable!")
-		// alert($(event.target).data('ingredientid'));
-		$("#ingredient" + $(event.target).data('ingredientid')).append(window.JST['edit_ingredient']());
-	}
-</script>
-
-
-
-<% end %>
+	<tbody>
+		<% @recipe.ingredients.each do |ingredient| %>
+		<tr>
+			<td><%= ingredient.time %></td>
+			<td><%= ingredient.name %></td>
+			<td><%= ingredient.amount %></td>
+			<td><%= ingredient.notes %></td>
+		</tr>
+	
+		<script>markCanvas(<%= ingredient.time %>, "<%= ingredient.name %>");</script>
+		<% end %>
+	</tbody>	
+</table>

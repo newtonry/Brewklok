@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+#display-timer {
+	font-size: 100px;
+	
+}
