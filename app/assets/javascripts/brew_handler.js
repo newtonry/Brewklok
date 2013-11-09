@@ -58,7 +58,8 @@
 		var $el = $("#futureIngredients");
 		
 		this.future.forEach(function(ingred){
-			$el.append("<h5 id='ingredientId" + ingred.id + "'>" + ingred.name + "</h5>");
+			// $el.append("<h5 id='ingredientId" + ingred.id + "'>" + ingred.name + "</h5>");
+			$el.append(displayIngredient({ingredient: ingred}));
 		});
 	}
 	
@@ -76,7 +77,6 @@
 					break;
 				}
 			}
-
 			var $el = $("#ingredientId" + ingred.id).detach();
 			$("#pastIngredients").append($el);
 		});

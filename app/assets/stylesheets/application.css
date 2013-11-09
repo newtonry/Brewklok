@@ -26,6 +26,14 @@
 	margin-top: -20px;
 }
 
+
+#futureIngredients .details {
+	display: none;	
+}
+#pastIngredients .details {
+	display: none;	
+}
+
 .highlighted-table{
   border-color: #66afe9;
   outline: 0;
