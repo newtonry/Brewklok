@@ -1,0 +1,3054 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>javascript - Remove specific element from an array? - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta name="og:type" content="website">
+    <meta name="og:image" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=fde65a5a78c6">
+    <meta name="og:title" content="Remove specific element from an array?">
+    <meta name="og:description" content="I have an array of integers, which I&#39;m using the .push() method to add to.
+
+Is there a simple way to remove a specific element from an array? The equivalent of something like array.remove(int);
+
+I ...">
+    <meta name="og:url" content="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array">
+    <link rel="canonical" href="./javascript - Remove specific element from an array  - Stack Overflow_files/javascript - Remove specific element from an array  - Stack Overflow.html">
+
+    
+    
+    <script type="text/javascript" async="" src="./javascript - Remove specific element from an array  - Stack Overflow_files/ados"></script><script type="text/javascript" async="" src="./javascript - Remove specific element from an array  - Stack Overflow_files/ga.js"></script><script type="text/javascript" async="" src="./javascript - Remove specific element from an array  - Stack Overflow_files/quant.js"></script><script type="text/javascript" async="" src="./javascript - Remove specific element from an array  - Stack Overflow_files/ados.js"></script><script type="text/javascript" src="./javascript - Remove specific element from an array  - Stack Overflow_files/jquery.min.js"></script>
+    <script src="./javascript - Remove specific element from an array  - Stack Overflow_files/stub.en.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="./javascript - Remove specific element from an array  - Stack Overflow_files/all.css">
+    
+    <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Remove specific element from an array?&#39;" href="http://stackoverflow.com/feeds/question/5767325">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:4,shownCommentCount:4,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:5767325});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '5767325');
+            
+                    });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1383954225,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","enableSocialMediaInSharePopup":true},"user":{"fkey":"34c4836aeee8eebfa18e2e00ae0b0cc3","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"e0bbd4760e83","js/moderator.en.js":"1a411fd265fe","js/full-anon.en.js":"e469ccee4650","js/full.en.js":"2ce5baed34eb","js/wmd.en.js":"993120c4c16d","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"d1d834ef85d2","js/help.en.js":"d3cc74d8a93a","js/tageditor.en.js":"6d51a5f8d7f3","js/tageditornew.en.js":"111b781cf314","js/inline-tag-editing.en.js":"f951bd09dc69","js/revisions.en.js":"33fd38144303","js/review.en.js":"7cf8f6099119","js/tagsuggestions.en.js":"e4e7b952fcc7","js/post-validation.en.js":"c275fe37d674","js/explore-qlist.en.js":"73825bd006fc","js/events.en.js":"130d4e07b47b"});
+    </script>
+    <script type="text/javascript">
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script type="text/javascript">
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+<script async="" type="text/javascript" src="./javascript - Remove specific element from an array  - Stack Overflow_files/full-anon.en.js"></script><script async="" type="text/javascript" src="./javascript - Remove specific element from an array  - Stack Overflow_files/post-validation.en.js"></script><script async="" type="text/javascript" src="./javascript - Remove specific element from an array  - Stack Overflow_files/prettify-full.en.js"></script><link href="./javascript - Remove specific element from an array  - Stack Overflow_files/sidebar.min.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="./javascript - Remove specific element from an array  - Stack Overflow_files/adFeedback.js"></script><link rel="stylesheet" href="http://static.adzerk.net/Extensions/adFeedback.css"></head>
+<body class="question-page">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+    <div class="container">
+        <div id="header" class="headeranon">
+            <div id="portalLink">
+                <a class="genu" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    
+<span id="hlinks-user"></span>
+<span id="hlinks-nav">                        <a href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f5767325%2fremove-specific-element-from-an-array">sign up</a>
+
+ <span class="lsep">|</span>
+                    <a href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f5767325%2fremove-specific-element-from-an-array">log in</a>
+
+ <span class="lsep">|</span>
+                    <a href="http://careers.stackoverflow.com/">careers 2.0</a>
+
+ <span class="lsep">|</span>
+</span>
+<span id="hlinks-custom"></span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                        <div>
+                            <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="240" size="28" value="">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs mainnavsanon">
+                    <ul>
+                            <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                            <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                            <li><a id="nav-tour" href="http://stackoverflow.com/about">Tour</a></li>
+                            <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope="" itemtype="http://schema.org/Article">
+	<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+			<!--googleoff: all-->
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="http://stackoverflow.com/about" id="tell-me-more" class="button">Tell me more</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            }
+            if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/" });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+			<h1 itemprop="name"><a href="./javascript - Remove specific element from an array  - Stack Overflow_files/javascript - Remove specific element from an array  - Stack Overflow.html" class="question-hyperlink">Remove specific element from an array?</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="5767325" id="question">
+    
+                <script type="text/javascript">
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1809556105",4).setZone(43) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1809556105"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiY20iOjg0NywiY2giOjExNzgsImNyIjo1OTE5LCJkaSI6ImJmMmU0NzQyZGM4ZjQ3ZDBhMTcyMjU3NGJmZTAzODZhIiwiZG0iOjEsImZjIjo4ODA1LCJmbCI6MjQ0NCwia3ciOiJqYXZhc2NyaXB0LGFycmF5cyIsIm53IjoyMiwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyIsInJ2IjowLCJwciI6MTU2OCwic3QiOjgyNzcsInpuIjo0MywidHMiOjEzODM5NTQxOTUyNjMsInVyIjoiaHR0cDovL2NhcmVlcnMuc3RhY2tvdmVyZmxvdy5jb20vIn0&s=GCcX3hiBULnVi5JIlrbHfvdIisc" rel="nofollow" target="_blank" title=""><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/4c4f1be011a447efbce49c1811022e7a.png" title="" alt="" border="0" width="728" height="90"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li></ul><a href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" src="./javascript - Remove specific element from an array  - Stack Overflow_files/i.gif"></div>  
+
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="5767325">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+    <span class="vote-count-post ">287</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+    
+    <a class="star-off" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>58</b></div>   
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="description">
+
+        <p>I have an array of integers, which I'm using the <code>.push()</code> method to add to.</p>
+
+<p>Is there a simple way to remove a specific element from an array? The equivalent of something like <code>array.remove(int);</code></p>
+
+<p>I have to use good ol' fashioned JavaScript - no frameworks allowed.</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/javascript" class="post-tag" title="show questions tagged &#39;javascript&#39;" rel="tag">javascript</a> <a href="http://stackoverflow.com/questions/tagged/arrays" class="post-tag" title="show questions tagged &#39;arrays&#39;" rel="tag">arrays</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/q/5767325" title="short permalink to this question" class="short-link" id="link-post-5767325">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5767325/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        
+        
+        <a href="http://stackoverflow.com/posts/5767325/revisions" title="show all edits to this post">edited <span title="2013-05-19 06:14:57Z" class="relativetime">May 19 at 6:14</span></a>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1563422/danny-beckett"><div class="gravatar-wrapper-32"><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/0hIfS.png" alt=""></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1563422/danny-beckett">Danny Beckett</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">5,168</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="24 silver badges"><span class="badge2"></span><span class="badgecount">24</span></span><span title="50 bronze badges"><span class="badge3"></span><span class="badgecount">50</span></span>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+            asked <span title="2011-04-23 22:17:18Z" class="relativetime">Apr 23 '11 at 22:17</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/364969/walker"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/79e7cefc9e7deb0e0bf422baa1a38a2c" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/364969/walker">Walker</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">2,476</span><span title="7 gold badges"><span class="badge1"></span><span class="badgecount">7</span></span><span title="24 silver badges"><span class="badge2"></span><span class="badgecount">24</span></span><span title="52 bronze badges"><span class="badge3"></span><span class="badgecount">52</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5767325" class="comments" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+
+    <tr id="comment-27690455" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">If you need to support <b>&lt;IE9</b> (<i>sigh</i>) then check <a href="http://stackoverflow.com/questions/3629183/why-doesnt-indexof-work-on-an-array-ie8">this SO question</a> regarding <code>indexOf</code> in IE.</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/1123275/scotty-net" title="1366 reputation" class="comment-user">Scotty.NET</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment27690455_5767325"><span title="2013-09-13 07:48:49Z" class="relativetime-clean">Sep 13 at 7:48</span></a></span>
+		<span class="edited-yes" title="this comment was edited 2 times"></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-27891311" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy"><a href="http://underscorejs.org/#without" rel="nofollow">underscore.js without</a> works in both modern and legacy browsers.</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/449531/zhon" title="124 reputation" class="comment-user">zhon</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment27891311_5767325"><span title="2013-09-19 13:32:50Z" class="relativetime-clean">Sep 19 at 13:32</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-28071539" class="comment">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">OP specifically states no frameworks</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/1100265/jonathon" title="498 reputation" class="comment-user">Jonathon</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment28071539_5767325"><span title="2013-09-25 09:52:13Z" class="relativetime-clean">Sep 25 at 9:52</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-28170077" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">@Jonathon, my answer is for those (like me) who ended up on this page looking for a production solution, not specifically for Walker. <code>_.without([1, 2, 1, 0, 3, 1, 4], 0, 1); // =&gt; [2, 3, 4]</code></span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/449531/zhon" title="124 reputation" class="comment-user">zhon</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment28170077_5767325"><span title="2013-09-27 20:42:30Z" class="relativetime-clean">Sep 27 at 20:42</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-5767325" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></a>
+    </td>
+</tr>            </tbody></table>    
+</div>
+
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								16 Answers
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+        <a href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="5767357"></a>
+<div id="answer-5767357" class="answer accepted-answer" data-answerid="5767357">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="5767357">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">567</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>First, find the <code>index</code> of the element you want to remove:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">var</span><span class="pln"> array </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">9</span><span class="pun">];</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> index </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="lit">5</span><span class="pun">);</span></code></pre>
+
+<p>Then remove it with <code>splice</code>:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">index </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    array</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">index</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>The second parameter of <code>splice</code> is the number of elements to remove. Note, <code>splice</code> modifies the array in place and returns a new array containing the elements that have been removed.</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/5767357" title="short permalink to this answer" class="short-link" id="link-post-5767357">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5767357/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+        <a href="http://stackoverflow.com/posts/5767357/revisions" title="show all edits to this post">edited <span title="2013-09-20 16:07:59Z" class="relativetime">Sep 20 at 16:07</span></a>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2011-04-23 22:23:50Z" class="relativetime">Apr 23 '11 at 22:23</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/613430/tomwadley"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/5f366a9456858ee82f3044437ec7d735" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/613430/tomwadley">tomwadley</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">6,239</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="6 silver badges"><span class="badge2"></span><span class="badgecount">6</span></span><span title="13 bronze badges"><span class="badge3"></span><span class="badgecount">13</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5767357" class="comments" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="6" data-addlink-html="" data-addlink-disabled="true">
+
+    <tr id="comment-6605779" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="supernova">35</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">Good solution, but some browsers don't suppoer array.indexOf</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/546661/peter-olson" title="22683 reputation" class="comment-user">Peter Olson</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment6605779_5767357"><span title="2011-04-23 22:25:45Z" class="relativetime-clean">Apr 23 '11 at 22:25</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-6605782" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="warm">11</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">The second argument to the splice function is how many elements to remove.</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/613430/tomwadley" title="6239 reputation" class="comment-user">tomwadley</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment6605782_5767357"><span title="2011-04-23 22:25:58Z" class="relativetime-clean">Apr 23 '11 at 22:25</span></a></span>
+		<span class="edited-yes" title="this comment was edited 1 time"></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-23886198" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="warm">8</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">array.indexOf is not supported in IE8 or earlier (see <a href="http://www.w3schools.com/jsref/jsref_indexof_array.asp" rel="nofollow">w3schools.com/jsref/jsref_indexof_array.asp</a>).  jQuery.inArray() works similarly though (<a href="http://api.jquery.com/jQuery.inArray/" rel="nofollow">api.jquery.com/jQuery.inArray</a>)</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/132374/jon" title="3641 reputation" class="comment-user">Jon</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment23886198_5767357"><span title="2013-05-17 17:15:38Z" class="relativetime-clean">May 17 at 17:15</span></a></span>
+		<span class="edited-yes" title="this comment was edited 2 times"></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-26612130" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="hot">22</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">This answer is wrong and/or incomplete. <b>It only works for the first instance of an item in an array, and ONLY if it's IE9+.</b> I find the vote count here to be tragic.</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/135786/blesh" title="22063 reputation" class="comment-user">blesh</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment26612130_5767357"><span title="2013-08-10 19:28:37Z" class="relativetime-clean">Aug 10 at 19:28</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-27483454" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">4</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">Dangerous! If you are working with dynamic values (add and remove dynamic values from array) and value is not exist in array (the index become -1) the code above will remove the last element of the array.</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/1058605/adrian-p" title="220 reputation" class="comment-user">Adrian P.</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment27483454_5767357"><span title="2013-09-06 16:44:17Z" class="relativetime-clean">Sep 6 at 16:44</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-5767357" class="comments-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">show <b>6</b> more comments</a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+            <script type="text/javascript">
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1016759384",4).setZone(44) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1016759384">
+            <iframe id="ados_frame_adzerk1016759384_81041" frameborder="0" scrolling="no" height="90" width="728"></iframe><div class="adzerk-vote-controls" style="display: none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li></ul><a href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" src="./javascript - Remove specific element from an array  - Stack Overflow_files/i(1).gif"></div>  
+
+
+
+  
+<a name="5767335"></a>
+<div id="answer-5767335" class="answer" data-answerid="5767335">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="5767335">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">51</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>I don't know how you are expecting <code>array.remove(int)</code> to behave. There are three possibilities I can think of that you might be wanting.</p>
+
+<p>To remove an element of an array at an index <code>i</code>:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="pln">array</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span></code></pre>
+
+<p>If you want to remove every element with value <code>number</code> from the array:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">--)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">array</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> number</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+       array</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>If you just want to make the element at index <code>i</code> no longer exist, but you don't want the indexes of the other elements to change:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">delete</span><span class="pln"> array</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/5767335" title="short permalink to this answer" class="short-link" id="link-post-5767335">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5767335/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+        <a href="http://stackoverflow.com/posts/5767335/revisions" title="show all edits to this post">edited <span title="2013-05-23 18:10:45Z" class="relativetime">May 23 at 18:10</span></a>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2011-04-23 22:20:56Z" class="relativetime">Apr 23 '11 at 22:20</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/546661/peter-olson"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/233308e20f7e2236848f31c2b0b865dd" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/546661/peter-olson">Peter Olson</a><br>
+        <span class="reputation-score" title="reputation score 22683" dir="ltr">22.7k</span><span title="10 gold badges"><span class="badge1"></span><span class="badgecount">10</span></span><span title="59 silver badges"><span class="badge2"></span><span class="badgecount">59</span></span><span title="117 bronze badges"><span class="badge3"></span><span class="badgecount">117</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5767335" class="comments" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+
+    <tr id="comment-20295018" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="hot">15</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy"><code>delete</code> is not the correct way to remove an element from an array!</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/218196/felix-kling" title="195043 reputation" class="comment-user">Felix Kling</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment20295018_5767335"><span title="2013-01-27 15:30:48Z" class="relativetime-clean">Jan 27 at 15:30</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-20295091" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">3</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">@FelixKling It depends, it works if you want to make it so that <code>array.hasOwnProperty(i)</code> returns <code>false</code> and have the element at that position return <code>undefined</code>. But I'll admit that that's not a very common thing to want to do.</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/546661/peter-olson" title="22683 reputation" class="comment-user">Peter Olson</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment20295091_5767335"><span title="2013-01-27 15:36:52Z" class="relativetime-clean">Jan 27 at 15:36</span></a></span>
+		<span class="edited-yes" title="this comment was edited 1 time"></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-20929133" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">3</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy"><code>delete</code> will not update the length of the array neither really erases the element, only replaces it with the special value <code>undefined</code>.</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/881286/diosney" title="2390 reputation" class="comment-user">diosney</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment20929133_5767335"><span title="2013-02-17 03:44:59Z" class="relativetime-clean">Feb 17 at 3:44</span></a></span>
+		<span class="edited-yes" title="this comment was edited 1 time"></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-22855136" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">@diosney I don't know what you mean when you say it doesn't really erase the element. Further, it does more than simply replacing the value at that index with <code>undefined</code>: it removes both the index and the value from the array, i.e. after <code>delete array[0]</code>, <code>"0" in array</code> will return false.</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/546661/peter-olson" title="22683 reputation" class="comment-user">Peter Olson</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment22855136_5767335"><span title="2013-04-15 19:13:42Z" class="relativetime-clean">Apr 15 at 19:13</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-24074295" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">for(var i=array.length; i&gt;=0; i--) should be for(var i=array.length-1; i&gt;=0; i--) because indexing starts at 0 (there is no element at array[array.length])</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/64208/bambax" title="898 reputation" class="comment-user">Bambax</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment24074295_5767335"><span title="2013-05-23 18:04:43Z" class="relativetime-clean">May 23 at 18:04</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-5767335" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="5767411"></a>
+<div id="answer-5767411" class="answer" data-answerid="5767411">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="5767411">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">37</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>Depends on whether you want to keep an empty spot or not.</p>
+
+<p>If you do want an empty slot, delete is fine:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">delete</span><span class="pln"> array</span><span class="pun">[</span><span class="pln"> index </span><span class="pun">];</span></code></pre>
+
+<p>If you don't, you should use the <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/splice">splice</a> method:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="pln">array</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln"> index</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">);</span></code></pre>
+
+<p>And if you need the value of that item, you can just store the return value:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">var</span><span class="pln"> value </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln"> index</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">);</span></code></pre>
+
+<p>In case you want to do it in some order, you can use array.pop( ) for the last one or array.shift( ) for the first one (and both return the value of the item too).</p>
+
+<p>And if you don't know the index of the item, you can use array.indeOf( item ) to get it (in a if() to get one item or in a while() to get all of them). array.indexOf( item ) returns either the index or -1 if not found.</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/5767411" title="short permalink to this answer" class="short-link" id="link-post-5767411">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5767411/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2011-04-23 22:32:45Z" class="relativetime">Apr 23 '11 at 22:32</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/304559/xavierm02"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/b51e5c1c9b5a52c9c5690ed2d90b05af" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/304559/xavierm02">xavierm02</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">1,814</span><span title="7 silver badges"><span class="badge2"></span><span class="badgecount">7</span></span><span title="17 bronze badges"><span class="badge3"></span><span class="badgecount">17</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5767411" class="comments" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+
+    <tr id="comment-25558352" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">It's worth noting that <code>var value</code> will not store the removed value but an array containing the removed value.</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/523898/jakub" title="349 reputation" class="comment-user">Jakub</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment25558352_5767411"><span title="2013-07-10 09:55:45Z" class="relativetime-clean">Jul 10 at 9:55</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-5767411" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="5767332"></a>
+<div id="answer-5767332" class="answer" data-answerid="5767332">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="5767332">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">14</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><pre class="default prettyprint prettyprinted" style=""><code><span class="typ">Array</span><span class="pun">.</span><span class="pln">prototype</span><span class="pun">.</span><span class="pln">remByVal </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">val</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">this</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> val</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+            i</span><span class="pun">--;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="com">//Call like</span><span class="pln">
+</span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">].</span><span class="pln">remByVal</span><span class="pun">(</span><span class="lit">3</span><span class="pun">);</span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/5767332" title="short permalink to this answer" class="short-link" id="link-post-5767332">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5767332/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2011-04-23 22:20:28Z" class="relativetime">Apr 23 '11 at 22:20</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/617762/zirak"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/348d335cd13298e475eeaefa1841dee6" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/617762/zirak">Zirak</a><br>
+        <span class="reputation-score" title="reputation score 11087" dir="ltr">11.1k</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="28 silver badges"><span class="badge2"></span><span class="badgecount">28</span></span><span title="52 bronze badges"><span class="badge3"></span><span class="badgecount">52</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5767332" class="comments" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+
+    <tr id="comment-6605816" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">3</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">I'm not a big fan of this approach. If you end up using different libraries or frameworks, they can end up conflicting with each other.</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/645511/charlie-kilian" title="2762 reputation" class="comment-user">Charlie Kilian</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment6605816_5767332"><span title="2011-04-23 22:30:15Z" class="relativetime-clean">Apr 23 '11 at 22:30</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-6605865" class="comment">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">This worked as well, I chose to go with the indexOf function in the end though.  Thanks for the help!</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/364969/walker" title="2476 reputation" class="comment-user owner">Walker</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment6605865_5767332"><span title="2011-04-23 22:35:58Z" class="relativetime-clean">Apr 23 '11 at 22:35</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-15036850" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">Bad idea, see this post: <a href="http://stackoverflow.com/questions/948358/array-prototype-problem" title="array prototype problem">stackoverflow.com/questions/948358/array-prototype-problem</a></span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/1168625/mmeah" title="758 reputation" class="comment-user">MMeah</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment15036850_5767332"><span title="2012-07-09 22:10:08Z" class="relativetime-clean">Jul 9 '12 at 22:10</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-5767332" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="13989373"></a>
+<div id="answer-13989373" class="answer" data-answerid="13989373">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="13989373">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">13</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>Be careful when you use delete for an array. It is good for deleting attributes of objects but not so good for arrays. It is better to use splice for arrays.</p>
+
+<p>Keep in mind that when you use <code>delete</code> for an array you could get wrong results for <code>anArray.length</code>. In other words, <code>delete</code> would remove the element but not update the value of length property.</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/13989373" title="short permalink to this answer" class="short-link" id="link-post-13989373">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/13989373/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+        <a href="http://stackoverflow.com/posts/13989373/revisions" title="show all edits to this post">edited <span title="2013-08-20 20:44:00Z" class="relativetime">Aug 20 at 20:44</span></a>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2012-12-21 11:32:32Z" class="relativetime">Dec 21 '12 at 11:32</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/897373/sasa"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/ec9bdcb65fc5fa8451fb3294575d4cf6" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/897373/sasa">Sasa</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">240</span><span title="2 silver badges"><span class="badge2"></span><span class="badgecount">2</span></span><span title="9 bronze badges"><span class="badge3"></span><span class="badgecount">9</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-13989373" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-13989373" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="18165553"></a>
+<div id="answer-18165553" class="answer" data-answerid="18165553">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="18165553">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">9</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>A friend was having issues in IE8, and showed me what he did, I told him it was wrong, and he told me he got the answer here. The current top answer will not work in all browsers (IE8 for example), and will only remove the first occurrence of the item.</p>
+
+<h2>Remove ALL instances from an array</h2>
+
+<h3>ALL browsers (just use this)</h3>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="pln">  </span><span class="kwd">function</span><span class="pln"> remove</span><span class="pun">(</span><span class="pln">arr</span><span class="pun">,</span><span class="pln"> item</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> arr</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">--;)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+          </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">arr</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> item</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+              arr</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+          </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">}</span></code></pre>
+
+<p>It loops through the array backwards (since indices and length will change as items are removed) and removes the item if it's found. Works in all browsers.</p>
+
+<h3>IE9+, Chrome, Safari and Firefox ONLY</h3>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">function</span><span class="pln"> remove</span><span class="pun">(</span><span class="pln">arr</span><span class="pun">,</span><span class="pln"> item</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">while</span><span class="pun">((</span><span class="pln">i </span><span class="pun">=</span><span class="pln"> arr</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="pln">item</span><span class="pun">))</span><span class="pln"> </span><span class="pun">!==</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+     arr</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/18165553" title="short permalink to this answer" class="short-link" id="link-post-18165553">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/18165553/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2013-08-10 19:21:23Z" class="relativetime">Aug 10 at 19:21</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/135786/blesh"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/9035acc6a3970f0a52f66ed3f703219b" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/135786/blesh">blesh</a><br>
+        <span class="reputation-score" title="reputation score 22063" dir="ltr">22.1k</span><span title="9 gold badges"><span class="badge1"></span><span class="badgecount">9</span></span><span title="81 silver badges"><span class="badge2"></span><span class="badgecount">81</span></span><span title="105 bronze badges"><span class="badge3"></span><span class="badgecount">105</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-18165553" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-18165553" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="12952256"></a>
+<div id="answer-12952256" class="answer" data-answerid="12952256">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="12952256">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">4</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>You can always delete the specific element and filter out the array. It might need an extension of the <a href="http://www.tutorialspoint.com/javascript/array_filter.htm" rel="nofollow">array object</a> for browsers that don't implement the filter method but in the long term its easier since all you do is this:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">var</span><span class="pln"> my_array </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">5</span><span class="pun">,</span><span class="lit">6</span><span class="pun">];</span><span class="pln">
+</span><span class="kwd">delete</span><span class="pln"> my_array</span><span class="pun">[</span><span class="lit">4</span><span class="pun">];</span><span class="pln">
+console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">my_array</span><span class="pun">.</span><span class="pln">filter</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">a</span><span class="pun">){</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> a </span><span class="pun">!==</span><span class="pln"> </span><span class="str">'undefined'</span><span class="pun">;}));</span></code></pre>
+
+<p>Should display <code>[1, 2, 3, 4, 6]</code></p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/12952256" title="short permalink to this answer" class="short-link" id="link-post-12952256">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/12952256/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2012-10-18 10:13:15Z" class="relativetime">Oct 18 '12 at 10:13</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/208271/loupax"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/02fd82768b314de2d7b1098b0923d1bd" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/208271/loupax">Loupax</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">595</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="16 bronze badges"><span class="badge3"></span><span class="badgecount">16</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-12952256" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-12952256" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="15762329"></a>
+<div id="answer-15762329" class="answer" data-answerid="15762329">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="15762329">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">3</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>Check this code. It works in <strong>major browser</strong>.</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="pln">remove_item </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">arr</span><span class="pun">,</span><span class="pln">value</span><span class="pun">){</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pun">(</span><span class="pln">b </span><span class="kwd">in</span><span class="pln"> arr </span><span class="pun">){</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">arr</span><span class="pun">[</span><span class="pln">b</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> value</span><span class="pun">){</span><span class="pln">
+            arr</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">b</span><span class="pun">,</span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+            </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> arr</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>Call this function </p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="pln">remove_item</span><span class="pun">(</span><span class="pln">array</span><span class="pun">,</span><span class="pln">value</span><span class="pun">);</span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/15762329" title="short permalink to this answer" class="short-link" id="link-post-15762329">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/15762329/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2013-04-02 10:56:10Z" class="relativetime">Apr 2 at 10:56</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1127910/farhad"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/be0e261ea55de8b97e0800a7942fd813" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1127910/farhad">Farhad</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">346</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="10 bronze badges"><span class="badge3"></span><span class="badgecount">10</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-15762329" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-15762329" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="15381347"></a>
+<div id="answer-15381347" class="answer" data-answerid="15381347">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="15381347">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">2</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p><a href="https://gist.github.com/zykadelic/5069236" rel="nofollow">This gist here</a> will solve your problem, and also deletes all occurrences of the argument instead of just 1 (or a specified value).</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="typ">Array</span><span class="pun">.</span><span class="pln">prototype</span><span class="pun">.</span><span class="pln">destroy </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">){</span><span class="pln">
+    </span><span class="com">// Return null if no objects were found and removed</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> destroyed </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++){</span><span class="pln">
+
+        </span><span class="com">// Use while-loop to find adjacent equal objects</span><span class="pln">
+        </span><span class="kwd">while</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> obj</span><span class="pun">){</span><span class="pln">
+
+            </span><span class="com">// Remove this[i] and store it within destroyed</span><span class="pln">
+            destroyed </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">return</span><span class="pln"> destroyed</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>Usage:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">];</span><span class="pln">
+
+x</span><span class="pun">.</span><span class="pln">destroy</span><span class="pun">(</span><span class="lit">3</span><span class="pun">);</span><span class="pln">         </span><span class="com">// =&gt; 3</span><span class="pln">
+x</span><span class="pun">.</span><span class="pln">destroy</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span><span class="pln">     </span><span class="com">// =&gt; false</span><span class="pln">
+x</span><span class="pun">;</span><span class="pln">                    </span><span class="com">// =&gt; [1, 2, true, undefined]</span><span class="pln">
+
+x</span><span class="pun">.</span><span class="pln">destroy</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln">      </span><span class="com">// =&gt; true</span><span class="pln">
+x</span><span class="pun">.</span><span class="pln">destroy</span><span class="pun">(</span><span class="kwd">undefined</span><span class="pun">);</span><span class="pln"> </span><span class="com">// =&gt; undefined</span><span class="pln">
+x</span><span class="pun">;</span><span class="pln">                    </span><span class="com">// =&gt; [1, 2]</span><span class="pln">
+
+x</span><span class="pun">.</span><span class="pln">destroy</span><span class="pun">(</span><span class="lit">3</span><span class="pun">);</span><span class="pln">         </span><span class="com">// =&gt; null</span><span class="pln">
+x</span><span class="pun">;</span><span class="pln">                    </span><span class="com">// =&gt; [1, 2]</span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/15381347" title="short permalink to this answer" class="short-link" id="link-post-15381347">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/15381347/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+        <a href="http://stackoverflow.com/posts/15381347/revisions" title="show all edits to this post">edited <span title="2013-05-13 12:58:19Z" class="relativetime">May 13 at 12:58</span></a>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2013-03-13 09:28:29Z" class="relativetime">Mar 13 at 9:28</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/638254/zykadelic"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/84526facda777ff46233cfa3859cd5b8" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/638254/zykadelic">zykadelic</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">339</span><span title="2 silver badges"><span class="badge2"></span><span class="badgecount">2</span></span><span title="11 bronze badges"><span class="badge3"></span><span class="badgecount">11</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-15381347" class="comments" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+
+    <tr id="comment-23417856" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>   
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">This is buggy on unsorted lists. <code>[1,2,3,3,2,1].destroy(1)</code> results in <code>[3,3,2,1]</code> <a href="http://plnkr.co/edit/p8QhmOfgl9AzlBWjLLTp?p=preview" rel="nofollow">plnkr.co/edit/p8QhmOfgl9AzlBWjLLTp?p=preview</a></span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/740639/walter-stabosz" title="1668 reputation" class="comment-user">Walter Stabosz</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment23417856_15381347"><span title="2013-05-02 20:45:05Z" class="relativetime-clean">May 2 at 20:45</span></a></span>
+		<span class="edited-yes" title="this comment was edited 1 time"></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-23724003" class="comment">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">@WalterStabosz Thanks for pointing that out! I’ve updated both the Gist and the example to fix the bug. It’s unfortunately no longer a one-liner, but I eliminated the dependencies of <code>indexOf</code> and <code>Array#count</code>.</span>
+	–&nbsp;
+		<a href="http://stackoverflow.com/users/638254/zykadelic" title="339 reputation" class="comment-user">zykadelic</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#comment23724003_15381347"><span title="2013-05-13 13:00:26Z" class="relativetime-clean">May 13 at 13:00</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-15381347" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="18539905"></a>
+<div id="answer-18539905" class="answer" data-answerid="18539905">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="18539905">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">1</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>John Resig <a href="http://ejohn.org/blog/javascript-array-remove/" rel="nofollow">posted a good implementation</a>:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="com">// Array Remove - By John Resig (MIT Licensed)</span><span class="pln">
+</span><span class="typ">Array</span><span class="pun">.</span><span class="pln">prototype</span><span class="pun">.</span><span class="pln">remove </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">from</span><span class="pun">,</span><span class="pln"> to</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">var</span><span class="pln"> rest </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">slice</span><span class="pun">((</span><span class="pln">to </span><span class="pun">||</span><span class="pln"> </span><span class="kwd">from</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">length</span><span class="pun">);</span><span class="pln">
+  </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">length </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">from</span><span class="pun">;</span><span class="pln">
+  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">push</span><span class="pun">.</span><span class="pln">apply</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> rest</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">};</span></code></pre>
+
+<p>But the main reason I am posting this is to warn users against the alternative implementation suggested in the comments on that page (Dec 14, 2007):</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="typ">Array</span><span class="pun">.</span><span class="pln">prototype</span><span class="pun">.</span><span class="pln">remove </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">from</span><span class="pun">,</span><span class="pln"> to</span><span class="pun">){</span><span class="pln">
+  </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="kwd">from</span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="pln">to</span><span class="pun">=[</span><span class="lit">0</span><span class="pun">,</span><span class="kwd">from</span><span class="pun">||</span><span class="lit">1</span><span class="pun">,++</span><span class="pln">to</span><span class="pun">-</span><span class="kwd">from</span><span class="pun">][</span><span class="pln">arguments</span><span class="pun">.</span><span class="pln">length</span><span class="pun">])&lt;</span><span class="lit">0</span><span class="pun">?</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">length</span><span class="pun">+</span><span class="pln">to</span><span class="pun">:</span><span class="pln">to</span><span class="pun">);</span><span class="pln">
+  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">};</span></code></pre>
+
+<p>It seems to work well at first, but through a painful process I discovered it fails when trying to remove the second to last element in an array. For example, if you have a 10-element array and you try to remove the 9th element with this:</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="pln">myArray</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="lit">8</span><span class="pun">);</span></code></pre>
+
+<p>You end up with an 8-element array. Don't know why but I confirmed John's original implementation doesn't have this problem.</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/18539905" title="short permalink to this answer" class="short-link" id="link-post-18539905">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/18539905/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2013-08-30 19:07:00Z" class="relativetime">Aug 30 at 19:07</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/591281/roger"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/4c801adb87c3baafdb529622b64b68e6" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/591281/roger">Roger</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">180</span><span title="2 silver badges"><span class="badge2"></span><span class="badgecount">2</span></span><span title="9 bronze badges"><span class="badge3"></span><span class="badgecount">9</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-18539905" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-18539905" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="16521953"></a>
+<div id="answer-16521953" class="answer" data-answerid="16521953">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="16521953">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>You can iterate over each <code>array</code>-item and <code>splice</code> it if it exist in your <code>array</code>.</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">function</span><span class="pln"> destroy</span><span class="pun">(</span><span class="pln">arr</span><span class="pun">,</span><span class="pln"> val</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> arr</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">arr</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> val</span><span class="pun">)</span><span class="pln"> arr</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> arr</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/16521953" title="short permalink to this answer" class="short-link" id="link-post-16521953">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/16521953/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2013-05-13 12:22:07Z" class="relativetime">May 13 at 12:22</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1250044/yckart"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/4f7e8e1c71f327206af087394ba0ce30" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1250044/yckart">yckart</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">5,303</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="15 silver badges"><span class="badge2"></span><span class="badgecount">15</span></span><span title="35 bronze badges"><span class="badge3"></span><span class="badgecount">35</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-16521953" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-16521953" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="18104035"></a>
+<div id="answer-18104035" class="answer" data-answerid="18104035">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="18104035">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p><strong>Create new array:</strong></p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">var</span><span class="pln"> my_array </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Array</span><span class="pun">();</span></code></pre>
+
+<p><strong>Add elements to this array:</strong></p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="pln">my_array</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"element1"</span><span class="pun">);</span></code></pre>
+
+<p><strong>The function indexOf (Returns index or -1 when not found) :</strong></p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">var</span><span class="pln"> indexOf </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">needle</span><span class="pun">)</span><span class="pln"> 
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="kwd">typeof</span><span class="pln"> </span><span class="typ">Array</span><span class="pun">.</span><span class="pln">prototype</span><span class="pun">.</span><span class="pln">indexOf </span><span class="pun">===</span><span class="pln"> </span><span class="str">'function'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// newer browsers</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+        indexOf </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Array</span><span class="pun">.</span><span class="pln">prototype</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> 
+    </span><span class="kwd">else</span><span class="pln"> </span><span class="com">// older browsers</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+        indexOf </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">needle</span><span class="pun">)</span><span class="pln"> 
+        </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> index </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+
+            </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> 
+            </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">if</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> needle</span><span class="pun">)</span><span class="pln"> 
+                </span><span class="pun">{</span><span class="pln">
+                    index </span><span class="pun">=</span><span class="pln"> i</span><span class="pun">;</span><span class="pln">
+                    </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> index</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">};</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">return</span><span class="pln"> indexOf</span><span class="pun">.</span><span class="pln">call</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> needle</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">};</span></code></pre>
+
+<p><strong>Check index of this element (tested with firefox and IE8+):</strong></p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">var</span><span class="pln"> index </span><span class="pun">=</span><span class="pln"> indexOf</span><span class="pun">.</span><span class="pln">call</span><span class="pun">(</span><span class="pln">my_array</span><span class="pun">,</span><span class="pln"> </span><span class="str">"element1"</span><span class="pun">);</span></code></pre>
+
+<p><strong>Remove 1 element located at index from the array</strong></p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="pln">my_array</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">index</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/18104035" title="short permalink to this answer" class="short-link" id="link-post-18104035">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/18104035/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2013-08-07 12:57:55Z" class="relativetime">Aug 7 at 12:57</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1251989/enrico"><div class="gravatar-wrapper-32"><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/P8lRE.jpg" alt=""></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1251989/enrico">Enrico</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">117</span><span title="9 bronze badges"><span class="badge3"></span><span class="badgecount">9</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-18104035" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-18104035" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="18193533"></a>
+<div id="answer-18193533" class="answer" data-answerid="18193533">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="18193533">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>You can do a backward loop to make sure not to screw up the indexes, if there are multiple instances of the element.</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">var</span><span class="pln"> myElement </span><span class="pun">=</span><span class="pln"> </span><span class="str">"chocolate"</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> myArray </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'chocolate'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'poptart'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'poptart'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'poptart'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'chocolate'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'poptart'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'poptart'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'chocolate'</span><span class="pun">];</span><span class="pln">
+
+</span><span class="com">/* Important code */</span><span class="pln">
+</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> myArray</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">--)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">myArray</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> myElement</span><span class="pun">)</span><span class="pln"> myArray</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<h2><a href="http://jsfiddle.net/lun471k/7m6G9/" rel="nofollow">Live Demo</a></h2>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/18193533" title="short permalink to this answer" class="short-link" id="link-post-18193533">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/18193533/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2013-08-12 17:56:39Z" class="relativetime">Aug 12 at 17:56</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1451422/jeff-noel"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/ceeb278720a36f551782ff219b084cd4" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1451422/jeff-noel">Jeff Noel</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">2,859</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="5 silver badges"><span class="badge2"></span><span class="badgecount">5</span></span><span title="23 bronze badges"><span class="badge3"></span><span class="badgecount">23</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-18193533" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-18193533" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="18885102"></a>
+<div id="answer-18885102" class="answer" data-answerid="18885102">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="18885102">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>Why has nobody suggested the obvious one that doesn't need indexOf or splice?</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">function</span><span class="pun">(</span><span class="pln">arr</span><span class="pun">,</span><span class="pln"> val</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> j </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> l </span><span class="pun">=</span><span class="pln"> arr</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> l</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">arr</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">!==</span><span class="pln"> val</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      arr</span><span class="pun">[</span><span class="pln">j</span><span class="pun">++]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> arr</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+  arr</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span><span class="pln"> j</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>It also performs much better in comparison with the splice implementation in every test I did.</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/18885102" title="short permalink to this answer" class="short-link" id="link-post-18885102">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/18885102/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+        <a href="http://stackoverflow.com/posts/18885102/revisions" title="show all edits to this post">edited <span title="2013-09-19 13:15:02Z" class="relativetime">Sep 19 at 13:15</span></a>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2013-09-19 01:53:40Z" class="relativetime">Sep 19 at 1:53</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/49960/slosd"><div><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/37c13fed385151a83fc205f457ed73f9" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/49960/slosd">slosd</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">817</span><span title="6 silver badges"><span class="badge2"></span><span class="badgecount">6</span></span><span title="13 bronze badges"><span class="badge3"></span><span class="badgecount">13</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-18885102" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-18885102" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="19017234"></a>
+<div id="answer-19017234" class="answer" data-answerid="19017234">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="19017234">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><pre class="default prettyprint prettyprinted" style=""><code><span class="pln">  </span><span class="typ">Array</span><span class="pun">.</span><span class="pln">prototype</span><span class="pun">.</span><span class="pln">removeItem </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">a</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">this</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> a</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i2 </span><span class="pun">=</span><span class="pln"> i</span><span class="pun">;</span><span class="pln"> i2 </span><span class="pun">&lt;</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i2</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                        </span><span class="kwd">this</span><span class="pun">[</span><span class="pln">i2</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">[</span><span class="pln">i2 </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">];</span><span class="pln">
+                    </span><span class="pun">}</span><span class="pln">
+                    </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
+                    </span><span class="kwd">return</span><span class="pun">;</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">var</span><span class="pln"> recentMovies </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'Iron Man'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Batman'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Superman'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Spiderman'</span><span class="pun">];</span><span class="pln">
+    recentMovies</span><span class="pun">.</span><span class="pln">removeItem</span><span class="pun">(</span><span class="str">'Superman'</span><span class="pun">);</span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/19017234" title="short permalink to this answer" class="short-link" id="link-post-19017234">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/19017234/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info ">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2013-09-26 00:12:44Z" class="relativetime">Sep 26 at 0:12</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1473364/don-vincent-preziosi"><div class="gravatar-wrapper-32"><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/picture" alt=""></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1473364/don-vincent-preziosi">Don Vincent Preziosi</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">1</span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-19017234" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-19017234" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+
+  
+<a name="19244824"></a>
+<div id="answer-19244824" class="answer" data-answerid="19244824">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="19244824">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">-1</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>I also ran in the situation where I had to remove an element from <code>Array</code>. <code>.indexOf</code> was not working in <code>IE*</code> so sharing my working <code>jQuery.inArray()</code> solution.</p>
+
+<pre class="default prettyprint prettyprinted" style=""><code><span class="kwd">var</span><span class="pln"> index </span><span class="pun">=</span><span class="pln"> jQuery</span><span class="pun">.</span><span class="pln">inArray</span><span class="pun">(</span><span class="pln">val</span><span class="pun">,</span><span class="pln">arr</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">index </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    arr</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">index</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+    </span><span class="com">//console.log(arr);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/19244824" title="short permalink to this answer" class="short-link" id="link-post-19244824">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/19244824/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        
+        
+            answered <span title="2013-10-08 10:09:53Z" class="relativetime">Oct 8 at 10:09</span>
+        
+
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2825534/nullpointer"><div class="gravatar-wrapper-32"><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/bcTE3.jpg" alt=""></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2825534/nullpointer">NullPointer</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">1,158</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="17 bronze badges"><span class="badge3"></span><span class="badgecount">17</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-19244824" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="" data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-19244824" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/5767325/answer/submit" method="post" class="post-form">
+							<input type="hidden" id="post-id" value="5767325">
+							<h2 class="space">Your Answer</h2>
+
+
+
+    
+
+<script type="text/javascript">
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: true,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="34c4836aeee8eebfa18e2e00ae0b0cc3">
+        <input id="author" name="author" type="text">
+    </div>
+</div>
+							<div style="position: relative;">
+								
+            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f5767325%2fremove-specific-element-from-an-array%23new-answer">login</a></h3>
+                        <script type="text/javascript">
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            </script>
+            <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="text" size="30" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay">required, but not shown</span>
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', '%2fquestions%2f5767325%2fremove-specific-element-from-an-array%23new-answer');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;script type="text/javascript"&gt;
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            &lt;/script&gt;
+            &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="text" size="30" maxlength="100" value="" tabindex="106"&gt;
+                    &lt;span class="edit-field-overlay"&gt;required, but not shown&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/javascript" class="post-tag" title="show questions tagged &#39;javascript&#39;" rel="tag">javascript</a> <a href="http://stackoverflow.com/questions/tagged/arrays" class="post-tag" title="show questions tagged &#39;arrays&#39;" rel="tag">arrays</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+							<div class="module question-stats">
+					<p class="label-key">tagged</p>
+					<div class="tagged"><a href="http://stackoverflow.com/questions/tagged/javascript" class="post-tag" title="show questions tagged &#39;javascript&#39;" rel="tag">javascript</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count">477567</span></span><br>
+<a href="http://stackoverflow.com/questions/tagged/arrays" class="post-tag" title="show questions tagged &#39;arrays&#39;" rel="tag">arrays</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count">67210</span></span><br>
+</div>
+					<table id="qinfo">
+						<tbody><tr>
+							<td>
+								<p class="label-key">asked</p>
+							</td>
+							<td style="padding-left: 10px">
+								<p class="label-key" title="2011-04-23 22:17:18Z"><b>2 years ago</b></p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p class="label-key">viewed</p>
+							</td>
+
+							<td style="padding-left: 10px">
+								<p class="label-key">
+									<b>235741 times</b>
+								</p>
+							</td>
+						</tr>
+							<tr>
+								<td>
+									<p class="label-key">active</p>
+								</td>
+								<td style="padding-left: 10px">
+									<p class="label-key"><b><a href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array?lastactivity" class="lastactivity-link" title="2013-10-08 10:09:53Z">1 month ago</a></b></p>
+								</td>
+							</tr>
+					</tbody></table>
+				</div>
+			<div class="module community-bulletin" data-tracker="cb=1">
+    <h4>Community Bulletin</h4>
+    <div class="related">
+
+            <div class="spacer">
+                <div class="bulletin-item-type"><a href="http://blog.stackoverflow.com/?cb=1" class="event-date" target="_blank">blog</a></div>
+                <div class="bulletin-item-content">
+                    <a href="http://blog.stackoverflow.com/2013/11/raised-on-the-net-please-welcome-ana-hevesi-community-manager/?cb=1" class="question-hyperlink" target="_blank">Raised on The ‘Net: please welcome Ana Hevesi, Community Manager</a>
+                </div>
+                <br class="cbt">
+            </div>
+    </div>
+</div>
+
+			
+			            <script type="text/javascript">
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1858725557",17).setZone(45) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1858725557"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImNtIjo4NDcsImNoIjoxMTc4LCJjciI6MjM4NTgsImRpIjoiNmYyZjQ5NjBhNTRiNDRkY2EyYjBjMDZlYjVkYjljZjciLCJkbSI6MSwiZmMiOjM2NzQ4LCJmbCI6MjQ0NCwia3ciOiJqYXZhc2NyaXB0LGFycmF5cyIsIm53IjoyMiwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyIsInJ2IjowLCJwciI6MTU2OCwic3QiOjgyNzcsInpuIjo0NSwidHMiOjEzODM5NTQxOTUyNjksInVyIjoiaHR0cDovL2NhcmVlcnMuc3RhY2tvdmVyZmxvdy5jb20vIn0&s=4gI75NhderJG8W9RQQ6FZ0PaMZ0" rel="nofollow" target="_blank" title=""><img src="./javascript - Remove specific element from an array  - Stack Overflow_files/fdec4733b4814d9e958b7f86c25020b5.jpg" title="" alt="" border="0" width="220" height="250"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li></ul><a href="http://stackoverflow.com/questions/5767325/remove-specific-element-from-an-array#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" src="./javascript - Remove specific element from an array  - Stack Overflow_files/i(2).gif"></div>  
+    <div id="hireme"> <a href="http://careers.stackoverflow.com/jobs?a=144" class="top" target="_blank"></a> <ul class="jobs"> <li> <a href="http://careers.stackoverflow.com/jobs/40363/interesting-cutting-edge-software-engineer-glimmerglass-optical-cyber?a=Ne7hJS1y" target="_blank" title="Interesting cutting edge Software Engineer position using advanced technology at Glimmerglass Optical Cyber Solutions. Click to learn more."> Interesting cutting edge Software Engineer position using…<br> <span class="company">Glimmerglass Optical Cyber…</span> <span class="location">Hayward, CA</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/28868/java-software-engineer-enfos-inc?a=zcSFr7CU" target="_blank" title="Java Software Engineer at ENFOS. Click to learn more."> Java Software Engineer<br> <span class="company">ENFOS</span> <span class="location">Naperville, IL; San Mateo, CA</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/37537/android-engineer-pixate-inc?a=JMoeqFwc" target="_blank" title="Android Engineer at Pixate. Click to learn more."> Android Engineer<br> <span class="company">Pixate</span> <span class="location">Palo Alto, CA</span> </a> </li> <li class="city"><a href="http://careers.stackoverflow.com/jobs/location/san%20francisco%2c%20ca%2c%20united%20states?a=x0VW">More jobs near San Francisco...</a></li> </ul> <img alt="" class="impression" src="./javascript - Remove specific element from an array  - Stack Overflow_files/Ne7hJS1y-zcSFr7CU-JMoeqFwc-144-x0VW" style="display:none"></div>
+
+
+
+			  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/11026448?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/11026448/remove-object-from-a-javascript-array?lq=1" class="question-hyperlink">Remove object from a JavaScript Array?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/14548854?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/14548854/javascript-remove-value-from-associative-array?lq=1" class="question-hyperlink">JAVASCRIPT remove value from associative array</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/18275295?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/18275295/remove-a-single-object-from-a-javascript-object?lq=1" class="question-hyperlink">Remove a Single Object from a Javascript Object</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/17125533?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/17125533/removing-value-from-array-on-specific-location?lq=1" class="question-hyperlink">removing value from array on specific location</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/18617376?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/18617376/delete-key-value-from-object-in-array-javascript?lq=1" class="question-hyperlink">Delete key-value from object in array, Javascript</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/3954438?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted large">125</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/3954438/remove-item-from-array-by-value?lq=1" class="question-hyperlink">Remove item from array by value</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/3629183?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted large">122</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/3629183/why-doesnt-indexof-work-on-an-array-ie8?lq=1" class="question-hyperlink">Why doesn't indexOf work on an array IE8?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/948358?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">4</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/948358/adding-custom-functions-into-array-prototype?lq=1" class="question-hyperlink">adding custom functions into Array.prototype</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/17959225?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/17959225/how-to-input-multiple-checkbox-values-into-a-hidden-textbox-via-javascript?lq=1" class="question-hyperlink">How to input multiple checkbox values into a hidden textbox via javascript</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/18621612?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/18621612/find-and-remove-element-from-array?lq=1" class="question-hyperlink">Find and remove element from array</a>
+</div>					<div class="spacer more">
+				<a href="http://stackoverflow.com/questions/linked/5767325?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+					<div class="related" data-tracker="rq=1">
+						<div class="spacer">
+<a href="http://stackoverflow.com/q/170986?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted large">414
+    </div>
+</a><a href="http://stackoverflow.com/questions/170986/what-is-the-best-way-to-add-options-to-a-select-from-an-array-with-jquery?rq=1" class="question-hyperlink">What is the best way to add options to a select from an array with jQuery?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/q/281264?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted large">137
+    </div>
+</a><a href="http://stackoverflow.com/questions/281264/remove-empty-elements-from-an-array-in-javascript?rq=1" class="question-hyperlink">Remove empty elements from an array in Javascript</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/q/351409?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted large">578
+    </div>
+</a><a href="http://stackoverflow.com/questions/351409/appending-to-array?rq=1" class="question-hyperlink">Appending to array</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/q/500606?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted large">473
+    </div>
+</a><a href="http://stackoverflow.com/questions/500606/javascript-array-delete-elements?rq=1" class="question-hyperlink">JavaScript Array Delete Elements</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/q/1232040?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted large">425
+    </div>
+</a><a href="http://stackoverflow.com/questions/1232040/how-to-empty-an-array-in-javascript?rq=1" class="question-hyperlink">How to empty an array in JavaScript?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/q/3661071?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/3661071/js-remove-element-from-an-array-based-on-regexp?rq=1" class="question-hyperlink">JS: Remove Element from an Array based on RegExp</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/q/7015512?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">3
+    </div>
+</a><a href="http://stackoverflow.com/questions/7015512/removing-an-element-from-an-array-specifying-a-value-in-javascript?rq=1" class="question-hyperlink">Removing an element from an array specifying a value in Javascript</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/q/13175459?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/13175459/specific-element-from-an-array-of-data?rq=1" class="question-hyperlink">Specific element from an array of data</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/q/17602062?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/17602062/deleting-specific-array-element-from-multidimensional-array?rq=1" class="question-hyperlink">Deleting specific array element from multidimensional array?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/q/18621612?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/18621612/find-and-remove-element-from-array?rq=1" class="question-hyperlink">Find and remove element from array</a>
+</div>
+
+					</div>
+				</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text"><a href="http://stackoverflow.com/feeds/question/5767325" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+	<script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/5767325/ivc/437b');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/5767325/ivc/437b" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">default</div></div>
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/about">about</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                        <a href="http://stackoverflow.com/help/badges">badges</a>
+                    <a href="http://blog.stackexchange.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/about/hiring">jobs</a>
+                    <a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MjAsImNtIjo5NTQsImNoIjoxMTc4LCJjciI6Mjc3NiwiZG0iOjQsImZjIjoyODYyLCJmbCI6Mjc1MSwibnciOjIyLCJydiI6MCwicHIiOjExNSwic3QiOjAsInVyIjoiaHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL2Fib3V0L2NvbnRhY3QiLCJyZSI6MX0&s=hRods5B22XvRBwWIwtIMekcyNF8">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;, &quot;/questions/5767325/remove-specific-element-from-an-array&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="professional system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Answers</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="Information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (14)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="statisticians, data analysts, data miners and data visualization experts">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackoverflow.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Overflow</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2013 stack exchange inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> 
+ with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="footer-flair">
+                <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+            </div>
+            <div id="svnrev">
+                rev 2013.11.8.1141
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+<script type="text/javascript">var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script type="text/javascript">
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('javascript,arrays');; ados_load(); });         
+</script>
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);
+        _gaq.push(['_setCustomVar', 1, 'tags', '|javascript|arrays|']); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    var _comscore = _comscore || [];
+    (function () {
+        var ssl='https:'==document.location.protocol,
+            s=document.getElementsByTagName('script')[0],
+            ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src=(ssl?'https://ssl':'http://www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+        s.parentNode.insertBefore(sc, s);
+    })();
+    _comscore.push({ c1: "2", c2: "17440561" });
+    _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>        
+    
+
+</body></html>
