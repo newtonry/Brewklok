@@ -8,5 +8,6 @@ Brewklok::Application.routes.draw do
   resources :users
   resource :session
   
+  match "/about", to: "static_pages#about", via: 'get'
   root "static_pages#index"
 end
