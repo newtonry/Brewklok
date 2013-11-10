@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all.reverse
+    @recipes = Recipe.all
+    @recipes.sort_by! {|recipe| recipe.name}
     render :index
   end
   
@@ -34,6 +35,29 @@ class RecipesController < ApplicationController
   def run
     @recipe = Recipe.find(params[:id])
     render :run
+  end
+
+  def update    
+    raise params
+    
+    # @recipe = params[:recipe]
+    # @recipe = Recipe.find(params[:id])
+    
+    #needs to update the ingredients individually here
+    # params[:recipe][:ingredients].each do |ingredient|
+    #   
+    # end
+
+
+    Ingredient.update(params[:recipe][:ingredients].keys, params[:recipe][:ingredients].values)
+
+      
+    
+    # if @recipe.save
+    #   render :json => @recipe# might need to include ingredients as well
+    # else
+    #   redirect_to "http://www.google.com" #decide what to do here
+    # end
   end
 
 end

@@ -23,21 +23,7 @@ var editIngredient = function(event) {
 	$("#ingredient" + $(event.target).data('ingredientid')).append(window.JST['edit_ingredient']());
 };
 
-// var editableRollover = function() {
-// 	$('.ingredient-listing').find("td").on("dblclick", function(){
-// 
-// 		$(this).attr("contentEditable", "true");
-// 		// debugger
-// 	});
-// };
-
-
 var makeRecipeEditable = function(event) {
-	// debugger
-	// alert($(event.target).data('recipeid'));
-	
-	// $(document).find("td").attr("contentEditable", "true");
-	// debugger
 
 	$('.ingredient-attr').attr("contentEditable", "true");
 	$("#edit-button").hide('fast');
@@ -47,8 +33,58 @@ var makeRecipeEditable = function(event) {
 }
 
 var saveRecipe = function(event) {
+	
+	//needs to browse over each ingredient and build it up
+	//store each ingredient in an array
+	
+	// debugger
+	var recipe = [];
+	recipe['ingredients'] = [];
+	var newIngredients =$("#ingredient-table-body").find(".ingredient-listing");
+	
+	for(var i=0; i < newIngredients.length; i++) {
+		
+		// console.log($(newIngredients[i]).attr('data-ingredientid'));
 
-	// make ajax call here
+		// var newIngred = { "id" : $(newIngredients[i]).attr('data-ingredientid'),
+		// 									"name" : $(newIngredients[i]).find('.ingredient-name').html(),
+		// 									"time" : $(newIngredients[i]).find('.ingredient-time').html(),
+		// 									"notes" : $(newIngredients[i]).find('.ingredient-notes').html()
+		// 								};
+	  var id = $(newIngredients[i]).attr('data-ingredientid');
+		
+		// debugger
+		
+		recipe['ingredients'][id] = [];
+		recipe['ingredients'][id]['name'] = $(newIngredients[i]).find('.ingredient-name').html();
+		recipe['ingredients'][id]['time'] = $(newIngredients[i]).find('.ingredient-time').html();
+		recipe['ingredients'][id]['notes'] = $(newIngredients[i]).find('.ingredient-notes').html();
+		
+		
+		// .push(newIngred);
+	}	
+	
+	//make ajax call sending all ingredients
+	$.ajax({
+		// url: "/recipes/",
+		data: recipe,
+		type: "PATCH",
+		dataType: 'json',
+		success: function(resp) {
+			
+			
+			
+		},
+		
+		error: function(resp) {
+			console.log(resp);
+		}		
+	});
+	
+	
+	
+	
+	//highlight out button
 
 	makeRecipeUneditable();
 }

@@ -6,6 +6,11 @@
 		this.past = [];
 		this.current = [];
 		this.future = recipe.ingredients;
+		
+		//removes any previous intervals
+		if (!(typeof currentInterval === 'undefined')) {
+			clearInterval(currentInterval);
+		}
 	}
 	
 	BrewHandler.prototype.start = function(element) {	
@@ -18,8 +23,9 @@
 		
 		that.process(toBeAddedIngredients, toBeRemovedIngredients);		
 		
-		//the run loop
-		setInterval(function() { 
+		
+		//setting interval to a global variable to abuse scope if user leaves timer page then comes back, now I can kill the old timers
+		currentInterval = setInterval(function() { 	
 			that.timer.updateElement(element);//updates the timer, which is visually 'element'
 						
 			var toBeAddedIngredients = that.getTBAdd() || [];			
@@ -27,6 +33,7 @@
 			
 			that.process(toBeAddedIngredients, toBeRemovedIngredients);			
 		}, 1000);
+	
 	};
 	
 	BrewHandler.prototype.getTBRem = function() {
@@ -78,6 +85,7 @@
 				}
 			}
 			var $el = $("#ingredientId" + ingred.id).detach();
+			$el.toggleClass('well');
 			$("#pastIngredients").append($el);
 		});
 
@@ -94,6 +102,7 @@
 			}
 
 			var $el = $("#ingredientId" + ingred.id).detach();
+			$el.toggleClass('well');
 			$("#currentIngredients").append($el);
 		});		
 	}

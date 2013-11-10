@@ -7,10 +7,8 @@
 <div class='container'>
 	<h2>Recent Brews</h2>
 	<% @recipes.each do |recipe| %>
-		<ul><a href="<%= recipe_url(recipe) %>"><%= recipe.name %></a>
-		<% recipe.ingredients.each do |ingredient| %>
-			<li><%= ingredient.name %> - at <%= ingredient.time %> min</li>
-		<% end %>
-		</ul>
+		<h4><a href="<%= recipe_url(recipe) %>"><%= recipe.name %></a></h4>
+		<p><%= recipe.notes %></p>
+
 	<% end %>
 </div>

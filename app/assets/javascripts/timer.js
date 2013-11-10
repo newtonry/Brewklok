@@ -3,10 +3,6 @@
 	var Timer = root.Timer = function () {
 		this.startTime = new Date().getTime();
 	};
-		
-	Timer.prototype.timeNow = function() {
-		// alert(new Date().getTime());
-	};
 
 	//returns a string of the time difference
 	Timer.prototype.timeDifference = function() {
@@ -41,8 +37,6 @@
 		var that = this;
 		
 		this.startTime = new Date().getTime()
-		// this.updateElement(element);
-
 		setInterval(function() { that.updateElement(element); }, 1000);
 		
 	};

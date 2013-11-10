@@ -29,13 +29,13 @@
 			</tr>
 		</thead>
 
-		<tbody>
+		<tbody id="ingredient-table-body">
 			<% @recipe.ingredients.each do |ingredient| %>
-			<tr class='ingredient-listing'>
-				<td class='ingredient-attr'><%= ingredient.time %></td>
-				<td class='ingredient-attr'><%= ingredient.name %></td>
-				<td class='ingredient-attr'><%= ingredient.amount %></td>
-				<td class='ingredient-attr'><%= ingredient.notes %></td>
+			<tr class='ingredient-listing' data-ingredientId="<%= ingredient.id %>">
+				<td class='ingredient-attr ingredient-time'><%= ingredient.time %></td>
+				<td class='ingredient-attr ingredient-name'><%= ingredient.name %></td>
+				<td class='ingredient-attr ingredient-amount'><%= ingredient.amount %></td>
+				<td class='ingredient-attr ingredient-notes'><%= ingredient.notes %></td>
 			</tr>
 	
 			<script>markCanvas(<%= ingredient.time %>, "<%= ingredient.name %>");</script>
@@ -44,5 +44,5 @@
 	</table>
 </div>
 	<script>
-	initializeCanvas();
-		</script>
+		initializeCanvas();
+	</script>
