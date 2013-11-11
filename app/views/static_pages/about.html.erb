@@ -1,4 +1,24 @@
 <div class='container'>
 	<h1>About Brewklok</h1>
 	<p>It's freaking awesome!</p>
+	
+	<a class="btn btn-success btn-lg center-block start-button" onClick="test();" role="button">Start Timer</a>
+	
 </div>
+
+<script>
+
+// debugger
+$('.container').find(".btn-info").click(function(){alert('sadfasd');});
+$('.container').find(".btn-success").click(function(){test();});
+
+
+var test = function() {
+	$( event.target ).switchClass( "btn-success", "btn-info", 1000);
+	$(event.target).html('Pause');
+	
+	
+};
+
+
+</script>

@@ -8,9 +8,11 @@
 		<h5><%= @recipe.notes %></h5>
 	<% end %>
 
-	<canvas id="myCanvas" width="1000" height="100"
-	style="border:1px solid #000000;">
-	</canvas>
+	<div class='row'>
+		<canvas id="myCanvas" class="col-md-12" width="1000" height="100"
+		style="border:1px solid #000000;">
+		</canvas>
+	</div>
 
 	<h3>
 		Ingredients 
@@ -38,7 +40,7 @@
 				<td class='ingredient-attr ingredient-notes'><%= ingredient.notes %></td>
 			</tr>
 	
-			<script>markCanvas(<%= ingredient.time %>, "<%= ingredient.name %>");</script>
+			<script>markCanvas(<%= ingredient.time %>, <%= @recipe.ingredients.last.time + 5 %>, "<%= ingredient.name %>");</script>
 			<% end %>
 		</tbody>	
 	</table>

@@ -1,7 +1,9 @@
-var markCanvas = function(time, name) {
+var markCanvas = function(time, totalTime, name) {
+
 	var c=document.getElementById("myCanvas");
+	// debugger
 	var ctx=c.getContext("2d");
-	var xPos = 800 * (time/60);
+	var xPos = 800 * (time/totalTime);
 
 	ctx.beginPath();
 	ctx.arc(xPos + 100 ,50,10,0,2*Math.PI);
@@ -13,7 +15,7 @@ var initializeCanvas = function() {
 	var c=document.getElementById("myCanvas");
 	var ctx=c.getContext("2d");
 	ctx.moveTo(0,50);
-	ctx.lineTo(1000,50);
+	ctx.lineTo(1200,50);
 	ctx.stroke();
 };
 

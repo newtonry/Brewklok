@@ -17,6 +17,12 @@
 		var that = this;	
 		this.timer.startTime = new Date().getTime();
 		
+		$('.start-button').fadeOut('fast', function(){
+			$('.pause-button').show();
+		});
+		
+		
+		
 		//need to do this for ingredients that start at 0, should fix
 		var toBeAddedIngredients = that.getTBAdd() || [];			
 		var toBeRemovedIngredients = that.getTBRem() || [];

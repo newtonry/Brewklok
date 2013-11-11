@@ -1,7 +1,16 @@
 <div class='container'>
 	<div class="jumbotron">
-	  <p><a class="btn btn btn-success btn-lg center-block" onClick="bh.start('#display-timer', recipe);" role="button">Start Timer</a></p>
-		<h1 id="display-timer" class="text-center">00:00:00</h1>
+		<div class='row'><div class='col-md-3'></div>
+		  <p class='col-md-6'>
+				<a class="btn btn-success btn-lg center-block start-button" onClick="bh.start('#display-timer', recipe);" role="button">Start Timer</a>
+			<a class="btn btn-info btn-lg center-block pause-button" onClick="bh.pause();" role="button" style='display: none;'>Pause</a>
+			</p>
+			<div class='col-md-3'></div>
+		</div>
+
+			<div class='row'>
+			<h1 id="display-timer" class="text-center">00:00:00</h1>
+		</div>
 	</div>
 
 	<div class="row" style="text-align: center">
