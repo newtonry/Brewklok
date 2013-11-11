@@ -34,6 +34,10 @@
 	display: none;	
 }
 
+.jumbotron-info {
+	background-color: rgba(50,50,50,0.5);
+}
+
 .highlighted-table{
   border-color: #66afe9;
   outline: 0;

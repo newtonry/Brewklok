@@ -1,7 +1,11 @@
 <div class='container'>
-	<form action="<%= session_url %>" method="POST">
-		<%= render partial: 'shared/login_form' %>	
+	<h1>Login</h1>
+	<h4>And manage and track your brews, or <a href='<%= new_user_url %>'>register</a> to do so</h4>
+	<div class='well'>
+		<form action="<%= session_url %>" method="POST">
+			<%= render partial: 'shared/login_form' %>	
 	
-		<p><input class="btn btn-success" type="submit" value="Login"></p>
-	</form>
+			<p><input class="btn btn-success" type="submit" value="Login"></p>
+		</form>
+	</div>
 </div>

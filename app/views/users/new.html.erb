@@ -1,7 +1,10 @@
 <div class='container'>
-	<form action="<%= users_url %>" method="POST">
-		<%= render partial: 'shared/login_form' %>	
-	
-		<p><input class="btn btn-default" type="submit" value="Join"></p>
-	</form>
+	<h1>Register</h1>
+	<h4>Although not required, this will allow you to manage and track your brews</h4>
+		<div class='well'>	
+			<form action="<%= users_url %>" method="POST">
+				<%= render partial: 'shared/login_form' %>	
+			<p><input class="btn btn-default" type="submit" value="Join"></p>
+		</form>
+	</div>
 </div>
