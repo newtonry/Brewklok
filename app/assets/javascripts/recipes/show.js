@@ -40,8 +40,14 @@ var saveRecipe = function(event) {
 	//store each ingredient in an array
 	
 	// debugger
-	var recipe = [];
-	recipe['ingredients'] = [];
+	var params = {recipe: {}};
+	// recipe['ingredients'] = {
+	// 	1: {name: "xdsaf"},
+	// 	2: {name: "xdsaf"}
+	// 	
+	// 	
+	// };
+	
 	var newIngredients =$("#ingredient-table-body").find(".ingredient-listing");
 	
 	for(var i=0; i < newIngredients.length; i++) {
@@ -55,21 +61,30 @@ var saveRecipe = function(event) {
 		// 								};
 	  var id = $(newIngredients[i]).attr('data-ingredientid');
 		
-		// debugger
+	
+		params['recipe'][id] = {
+			// "id" : $(newIngredients[i]).attr('data-ingredientid'),
+			"name" : $(newIngredients[i]).find('.ingredient-name').html(),
+			"time" : $(newIngredients[i]).find('.ingredient-time').html(),
+			"notes" : $(newIngredients[i]).find('.ingredient-notes').html()
+		};
+
 		
-		recipe['ingredients'][id] = [];
-		recipe['ingredients'][id]['name'] = $(newIngredients[i]).find('.ingredient-name').html();
-		recipe['ingredients'][id]['time'] = $(newIngredients[i]).find('.ingredient-time').html();
-		recipe['ingredients'][id]['notes'] = $(newIngredients[i]).find('.ingredient-notes').html();
-		
+		// recipe['ingredients'][id] = [];
+		// recipe['ingredients'][id]['name'] = $(newIngredients[i]).find('.ingredient-name').html();
+		// recipe['ingredients'][id]['time'] = $(newIngredients[i]).find('.ingredient-time').html();
+		// recipe['ingredients'][id]['notes'] = $(newIngredients[i]).find('.ingredient-notes').html();
+
+
+
 		
 		// .push(newIngred);
 	}	
-	
+
 	//make ajax call sending all ingredients
 	$.ajax({
 		// url: "/recipes/",
-		data: recipe,
+		data: params,
 		type: "PATCH",
 		dataType: 'json',
 		success: function(resp) {

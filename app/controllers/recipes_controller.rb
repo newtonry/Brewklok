@@ -38,26 +38,8 @@ class RecipesController < ApplicationController
   end
 
   def update    
-    raise params
-    
-    # @recipe = params[:recipe]
-    # @recipe = Recipe.find(params[:id])
-    
-    #needs to update the ingredients individually here
-    # params[:recipe][:ingredients].each do |ingredient|
-    #   
-    # end
-
-
-    Ingredient.update(params[:recipe][:ingredients].keys, params[:recipe][:ingredients].values)
-
-      
-    
-    # if @recipe.save
-    #   render :json => @recipe# might need to include ingredients as well
-    # else
-    #   redirect_to "http://www.google.com" #decide what to do here
-    # end
+    Ingredient.update(params[:recipe].keys, params[:recipe].values)
+        
+    render json: 'Request made'
   end
-
 end
