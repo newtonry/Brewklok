@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require easeljs-0.7.0.min
 //= require underscore-min
-//= jquery-ui-1.10.3.custom.min.js
+//= require jquery.ui.all
 //= require_tree ./templates
 //= require turbolinks
 //= require_tree .

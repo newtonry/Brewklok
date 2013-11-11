@@ -19,6 +19,15 @@ var initializeCanvas = function() {
 	ctx.stroke();
 };
 
+var addToGraph = function(id, name, time) {
+  $("#sliders").append("<div id='ingredient" + id + "' class='ingredient-slider'></div>");
+	$("#ingredient" + id).slider({
+		value: time
+	});
+	
+};
+
+
 var editIngredient = function(event) {
 	alert("make it content editable!")
 	// alert($(event.target).data('ingredientid'));
@@ -87,14 +96,10 @@ var saveRecipe = function(event) {
 		data: params,
 		type: "PATCH",
 		dataType: 'json',
-		success: function(resp) {
-			
-			
-			
+		success: function(resp) {			
 		},
 		
 		error: function(resp) {
-			console.log(resp);
 		}		
 	});
 	

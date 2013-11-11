@@ -8,16 +8,13 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require_tree .
+ *= require jquery.ui.all
+ *= require_self
  */
 
 #display-timer {
 	font-size: 100px;
-}
-
-#save-button {
-	display: none;	
 }
 
 #front-page-jumbo {
@@ -26,16 +23,18 @@
 	margin-top: -20px;
 }
 
-
 #futureIngredients .details {
 	display: none;	
 }
+
 #pastIngredients .details {
 	display: none;	
 }
 
-.jumbotron-info {
-	background-color: rgba(50,50,50,0.5);
+
+#save-button {
+	display: none;
+	background-color: #000;
 }
 
 .highlighted-table{
@@ -45,3 +44,19 @@
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 15px rgba(102, 175, 233, 0.6);
 }
 
+.ingredient-slider {
+	border: none;
+}
+
+.ui-slider-handle {
+    color: green;
+    font-size: 10px;
+    padding: 3px;
+    text-decoration:none;
+		background: green;
+} 
+
+
+.jumbotron-info {
+	background-color: rgba(50,50,50,0.5);
+}

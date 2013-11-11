@@ -1,12 +1,11 @@
 (function(root) {
-	// var Timer = root.Timer = ( root.Timer || {});
 	var Timer = root.Timer = function () {
 		this.startTime = new Date().getTime();
+		this.pausedTime = 0;
 	};
 
-	//returns a string of the time difference
 	Timer.prototype.timeDifference = function() {
-		return new Date().getTime() - this.startTime;
+		return new Date().getTime() - (this.startTime + this.pausedTime);
 	};
 	
 	Timer.prototype.timeToString = function(unixTime) {
@@ -33,12 +32,22 @@
 		$(element).html(this.timeToString(this.timeDifference())); 
 	};
 	
-	Timer.prototype.start = function(element) {
-		var that = this;
-		
-		this.startTime = new Date().getTime()
-		setInterval(function() { that.updateElement(element); }, 1000);
-		
+	// Timer.prototype.start = function(element) {
+	// 	var that = this;
+	// 	
+	// 	this.startTime = new Date().getTime();
+	// 	this.intervalId = setInterval(function() { that.updateElement(element); }, 1000);
+	// 	debugger
+	// 	
+	// };
+	
+	Timer.prototype.pause = function() {
+		clearInterval(this.intervalId);
+		this.pauseStart = new Date().getTime(); 
+	};
+	
+	Timer.prototype.unpause = function() {
+		this.pausedTime = this.pausedTime + (new Date().getTime() - this.pauseStart);
 	};
 	
 })(this);
