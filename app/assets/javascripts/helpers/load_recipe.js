@@ -1,13 +1,11 @@
-var loadRecipe = function(id, callback)
+var loadRecipe = function(id, path, callback)
 {
 	$.ajax({
-		url: "../" + id,
+		url: "/recipes/" + id,
 		type: 'GET',
 		dataType: 'json',
 		success: callback,
 		
 		error: function(resp){debugger}
-		
-		
 	});
 };

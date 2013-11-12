@@ -1,29 +1,30 @@
 var addToGraph = function(id, name, time, totalTime) {
 	$("#graph-ingredient-names").append(name);
-  $("#graph").append("<div id='graph-name" + id + "' class='graph-ingredient-name col-md-2'>" + name + "</div>");
-	$("#graph").append("<div id='ingredient" + id + "' class='ingredient-slider col-md-10'></div>");
+	var newRow = $("#graph").append("<div class='row'></div>").find('.row').last();
+	
+  newRow.append("<div id='graph-name" + id + "' class='graph-ingredient-name col-md-2'>" + name + "</div>");
+	newRow.append("<div id='ingredient" + id + "' class='ingredient-slider col-md-10'></div>");
 
+	console.log(time);
 
 	$("#ingredient" + id).slider({
 		value: time,
 		max: totalTime + 1,
 		min: -1,
-		slide: function(	) {
+		slide: function() {
 			//adjusts the 
 			$('[data-ingredientId="' + id + '"]').find('.ingredient-time').html($("#ingredient" + id).slider( "value"));
 		}
 	});
+
+	//this line readjusts the css-left to actually be at 0
+	$slider = $("#ingredient" + id).find('a').css('left', time + '%');
+	
 	$("#ingredient" + id).slider('disable');	
 };
 
 var makeRecipeEditable = function(event) {
-	// this.recipeBeforeFor = 
-
-
-	// $("#graph").children().slider('enable');
-
 	$("#graph").find('.ingredient-slider').slider('enable');
-	
 	$('.ingredient-attr').attr("contentEditable", "true");
 	$("#edit-button").hide('fast');
 	$("#save-button").show('fast');
@@ -49,25 +50,28 @@ var saveRecipe = function(event) {
 
 	//make ajax call sending all ingredients
 	$.ajax({
-		// url: "/recipes/",
+		url:  window.location.pathname,
 		data: params,
 		type: "PATCH",
 		dataType: 'json',
-		success: function(resp) {			
+		success: function(resp) {
+			// console.log('saved');
+			$('nav').prepend('<div id="alert-message" class="alert alert-success">Saved!</div>');
+			$('#alert-message').fadeIn('fast').delay(1000).fadeOut('fast', function() {
+			$('#alert-message').remove();
+		});
 		},
 		
 		error: function(resp) {
+			console.log('There was an error in the save.');
 		}		
 	});
 	
-	
-	
-	//highlight out button
-
 	makeRecipeUneditable();
 }
 
 var cancelSaveRecipe = function() {
+	
 	
 	
 	makeRecipeUneditable();

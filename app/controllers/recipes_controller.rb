@@ -40,6 +40,6 @@ class RecipesController < ApplicationController
   def update    
     Ingredient.update(params[:recipe].keys, params[:recipe].values)
         
-    render json: 'Request made'
+    render json: 'Request made'.to_json
   end
 end

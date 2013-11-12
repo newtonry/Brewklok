@@ -37,7 +37,8 @@
 
 
 #nav-img {
-	height:20px;
+	height:25px;
+	float: left;
 	
 }
 
@@ -51,6 +52,13 @@
 
 #cancel-save-button {
 	display: none;
+}
+
+#alert-message {
+	position: absolute;
+	width: 100%;
+	display: none;
+/*	margin-top: -70px;*/
 }
 
 .graph-ingredient-name {
@@ -70,11 +78,25 @@
 	height: 25px;
 }
 
-
 .ui-slider {
 	background: none;
+/*	background-color: yellow;*/
+
+}
+
+.ui-slider-handle:focus {
+outline: 0;/*	background-color: yellow;*/
+
 }
 
 .jumbotron-info {
 	background-color: rgba(50,50,50,0.5);
+	padding: 2%;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+}
+
+.jumbotron-info h1 {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	letter-spacing: 0px;
 }

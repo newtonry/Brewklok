@@ -23,7 +23,7 @@
 	<script>
 		var bh;
 		var recipe;
-		loadRecipe(<%= @recipe.id %>, function(resp){ 
+		loadRecipe(<%= @recipe.id %>, "../", function(resp){ 
 			recipe = resp; 
 			bh = new BrewHandler(recipe);
 			bh.fillFuture();

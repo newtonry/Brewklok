@@ -307,8 +307,8 @@ html {
 body {
 	background: url('/assets/linedpaper.png');
 	background-repeat:repeat;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+	font-family: 'Raleway', sans-serif;  
+	font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
   background-color: #ffffff;
@@ -484,8 +484,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-weight: 700;
   line-height: 1.1;
   color: inherit;
 }
@@ -4457,6 +4457,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-brand {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-size: 15px;
   float: left;
   padding: 15px 15px;
   font-size: 18px;

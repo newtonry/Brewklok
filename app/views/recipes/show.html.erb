@@ -3,6 +3,7 @@
 		<h2 class="col-md-6"><%= @recipe.name %>
 			<a href="<%= run_recipe_url(@recipe) %>"><button class="btn btn-warning" >Brew!</button></a>
 		</h2>
+		<div class="col-md-6" id='clock'>00:00:00</div>
 	</div>
 	<% if !@recipe.notes.nil? %>
 		<h5><%= @recipe.notes %></h5>
@@ -20,9 +21,6 @@
 			
 		<i class="glyphicon glyphicon-floppy-disk" id="save-button" onClick="saveRecipe();"></i>
 		<i class="glyphicon glyphicon-floppy-remove" id="cancel-save-button" onClick="cancelSaveRecipe();"></i>	
-		
-			
-			<!-- <button class="btn btn-success" id="save-button" onClick="saveRecipe();">Save</button> -->
 	</h3>
 
 	<table class="table" id="ingredient-table">
@@ -56,7 +54,11 @@
 	</table>
 </div>
 	<script>
-	// renderGraph();
-	
-		// initializeCanvas();
+	var bh;
+	var recipe;
+		loadRecipe(<%= @recipe.id %>, "./", function(resp){ 
+			recipe = resp; 
+			bh = new BrewHandler(recipe);
+			bh.fillFuture();
+		});
 	</script>
