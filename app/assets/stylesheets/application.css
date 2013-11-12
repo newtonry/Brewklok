@@ -35,6 +35,12 @@
 	border-color: black;
 }
 
+
+#nav-img {
+	height:20px;
+	
+}
+
 #pastIngredients .details {
 	display: none;
 }
@@ -45,6 +51,11 @@
 
 #cancel-save-button {
 	display: none;
+}
+
+.graph-ingredient-name {
+	font-size: 80%;
+	
 }
 
 .highlighted-table{

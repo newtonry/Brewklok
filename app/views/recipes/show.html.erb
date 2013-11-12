@@ -19,7 +19,7 @@
 			onClick="makeRecipeEditable(event);"></i>
 			
 		<i class="glyphicon glyphicon-floppy-disk" id="save-button" onClick="saveRecipe();"></i>
-		<i class="glyphicon glyphicon-floppy-remove" id="cancel-save-button" onClick="cansleSaveRecipe();"></i>	
+		<i class="glyphicon glyphicon-floppy-remove" id="cancel-save-button" onClick="cancelSaveRecipe();"></i>	
 		
 			
 			<!-- <button class="btn btn-success" id="save-button" onClick="saveRecipe();">Save</button> -->
@@ -49,11 +49,14 @@
 											"<%= ingredient.name %>", 
 											<%= ingredient.time %>, 
 											<%= @recipe.ingredients.last.time + 5 %>);											
+				addChangeListeners(<%= ingredient.id %>);
 			</script>
 			<% end %>
 		</tbody>	
 	</table>
 </div>
 	<script>
-		initializeCanvas();
+	// renderGraph();
+	
+		// initializeCanvas();
 	</script>
