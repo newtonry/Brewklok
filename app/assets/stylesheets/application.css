@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require jquery.ui.all
+ *= requirejquery-ui-1.10.3.custom.css
  *= require_self
  */
 
@@ -27,14 +27,24 @@
 	display: none;	
 }
 
-#pastIngredients .details {
-	display: none;	
+#graph-container {
+	background-color: rgba(255, 255, 255, .9);
+	padding: 15px;
+	border: 1px;
+	border-style:solid;
+	border-color: black;
 }
 
+#pastIngredients .details {
+	display: none;
+}
 
 #save-button {
 	display: none;
-	background-color: #000;
+}
+
+#cancel-save-button {
+	display: none;
 }
 
 .highlighted-table{
@@ -46,16 +56,13 @@
 
 .ingredient-slider {
 	border: none;
+	height: 25px;
 }
 
-.ui-slider-handle {
-    color: green;
-    font-size: 10px;
-    padding: 3px;
-    text-decoration:none;
-		background: green;
-} 
 
+.ui-slider {
+	background: none;
+}
 
 .jumbotron-info {
 	background-color: rgba(50,50,50,0.5);

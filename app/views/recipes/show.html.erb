@@ -8,20 +8,21 @@
 		<h5><%= @recipe.notes %></h5>
 	<% end %>
 
-	<div class='row'>
-		<canvas id="myCanvas" class="col-md-12" width="1000" height="100"
-		style="border:1px solid #000000;">
-		</canvas>
-	</div>
-
-	<div id='sliders'>
+	<div id='graph-container' class='container'>
+		<div id='graph'>
+		</div>
 	</div>
 
 	<h3>
 		Ingredients 
 		<i class="glyphicon glyphicon-edit" id="edit-button" data-recipeid="<%= @recipe.id %>"
 			onClick="makeRecipeEditable(event);"></i>
-			<button class="btn btn-success" id="save-button" onClick="saveRecipe();">Save</button>
+			
+		<i class="glyphicon glyphicon-floppy-disk" id="save-button" onClick="saveRecipe();"></i>
+		<i class="glyphicon glyphicon-floppy-remove" id="cancel-save-button" onClick="cansleSaveRecipe();"></i>	
+		
+			
+			<!-- <button class="btn btn-success" id="save-button" onClick="saveRecipe();">Save</button> -->
 	</h3>
 
 	<table class="table" id="ingredient-table">
@@ -44,10 +45,10 @@
 			</tr>
 	
 			<script>
-				markCanvas(<%= ingredient.time %>, <%= @recipe.ingredients.last.time + 5 %>, "<%= ingredient.name %>");
 				addToGraph(<%= ingredient.id %>, 
 											"<%= ingredient.name %>", 
-											<%= (ingredient.time/(@recipe.ingredients.last.time + 5.0))*100 %>);
+											<%= ingredient.time %>, 
+											<%= @recipe.ingredients.last.time + 5 %>);											
 			</script>
 			<% end %>
 		</tbody>	
