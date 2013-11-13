@@ -10,7 +10,14 @@
 	<% end %>
 
 	<div id='graph-container' class='container'>
-		<div id='graph'>
+		<!-- <div id='graph-container-background'>
+			<div id='graph-container-background-padding' class='col-md-2'>
+			</div>
+			<div id='graph-container-background-progress' class='col-md-10'>
+			</div>
+		</div> -->
+		
+		<div id='graph'>			
 		</div>
 	</div>
 
@@ -58,6 +65,7 @@
 	var recipe;
 		loadRecipe(<%= @recipe.id %>, "./", function(resp){ 
 			recipe = resp; 
+			recipe.totalTime = recipe.ingredients[recipe.ingredients.length-1].time + 5;
 			bh = new BrewHandler(recipe);
 			bh.fillFuture();
 		});

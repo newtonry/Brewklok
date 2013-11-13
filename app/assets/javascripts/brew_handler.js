@@ -34,12 +34,14 @@
 		//setting interval to a global variable to abuse scope if user leaves timer page then comes back, now I can kill the old timers
 		currentInterval = setInterval(function() { 	
 			that.timer.updateElement(element);//updates the timer, which is visually 'element'
-						
+			var percentDone = that.timer.timeDifference() / 1000 / recipe.totalTime * 100;
+			$('.progress-bar').width(percentDone + '%');
+			
 			var toBeAddedIngredients = that.getTBAdd() || [];			
 			var toBeRemovedIngredients = that.getTBRem() || [];
 			
 			that.process(toBeAddedIngredients, toBeRemovedIngredients);			
-		}, 1000);
+		}, 500);
 	
 	};
 

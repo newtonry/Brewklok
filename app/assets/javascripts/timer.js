@@ -32,14 +32,6 @@
 		$(element).html(this.timeToString(this.timeDifference())); 
 	};
 	
-	// Timer.prototype.start = function(element) {
-	// 	var that = this;
-	// 	
-	// 	this.startTime = new Date().getTime();
-	// 	this.intervalId = setInterval(function() { that.updateElement(element); }, 1000);
-	// 	debugger
-	// 	
-	// };
 	
 	Timer.prototype.pause = function() {
 		clearInterval(this.intervalId);

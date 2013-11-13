@@ -35,7 +35,28 @@
 	border-color: black;
 }
 
+/*#graphcontainer #graph-container-background {
+	position: absolute;
+	width: 100%;
+}
 
+#graph-container-background #graph-container-background-padding {
+	background-color: rgba(200, 0, 0, .9);
+	position: relative;
+	float: left;
+	height: 200px;
+	padding: 0px;
+}
+
+#graph-container-background #graph-container-background-progress {
+	background-color: rgba(0, 200, 0, .2);
+	position: relative;
+	float: left;
+	height: 200px;
+	padding: 0px;
+	
+}
+*/
 #nav-img {
 	height:25px;
 	float: left;
@@ -76,6 +97,16 @@
 .ingredient-slider {
 	border: none;
 	height: 25px;
+}
+
+
+.progress-bar {
+	left: 0%;
+	height: 100%;
+	width: 10%;
+	background: rgba(0, 255, 0, 0.1);
+	position:absolute;
+	border: 0px;
 }
 
 .ui-slider {

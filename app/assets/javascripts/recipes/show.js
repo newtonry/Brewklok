@@ -5,17 +5,16 @@ var addToGraph = function(id, name, time, totalTime) {
   newRow.append("<div id='graph-name" + id + "' class='graph-ingredient-name col-md-2'>" + name + "</div>");
 	newRow.append("<div id='ingredient" + id + "' class='ingredient-slider col-md-10'></div>");
 
-	console.log(time);
-
 	$("#ingredient" + id).slider({
 		value: time,
 		max: totalTime + 1,
 		min: -1,
 		slide: function() {
-			//adjusts the 
 			$('[data-ingredientId="' + id + '"]').find('.ingredient-time').html($("#ingredient" + id).slider( "value"));
 		}
 	});
+
+	$("#ingredient" + id).append("<span class='progress-bar'></span>");
 
 	//this line readjusts the css-left to actually be at 0
 	$slider = $("#ingredient" + id).find('a').css('left', time + '%');
@@ -24,6 +23,9 @@ var addToGraph = function(id, name, time, totalTime) {
 };
 
 var makeRecipeEditable = function(event) {
+	// this.oldGraph = _.extend({}, $("#graph"));
+	this.oldIngredientTable = _.extend({}, $("#ingredient-table"));
+
 	$("#graph").find('.ingredient-slider').slider('enable');
 	$('.ingredient-attr').attr("contentEditable", "true");
 	$("#edit-button").hide('fast');
@@ -71,10 +73,12 @@ var saveRecipe = function(event) {
 }
 
 var cancelSaveRecipe = function() {
+	// $("#graph").b
+	debugger
+	$("#ingredient-table").replaceWith(this.oldIngredientTable);
 	
 	
-	
-	makeRecipeUneditable();
+	// makeRecipeUneditable();
 };
 
 
