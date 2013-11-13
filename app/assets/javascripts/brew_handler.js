@@ -36,7 +36,7 @@
 			that.timer.updateElement(element);//updates the timer, which is visually 'element'
 			var percentDone = that.timer.timeDifference() / 1000 / recipe.totalTime * 100;
 			$('.progress-bar').width(percentDone + '%');
-			
+			 
 			var toBeAddedIngredients = that.getTBAdd() || [];			
 			var toBeRemovedIngredients = that.getTBRem() || [];
 			
@@ -127,6 +127,12 @@
 					break;
 				}
 			}
+			
+			//for show page table
+			var $ingredientListing =$('[data-ingredientId="' + ingred.id + '"]');
+			$ingredientListing.switchClass('current', 'past', 2000);
+						
+			//for jumbo under /run
 			var $el = $("#ingredientId" + ingred.id).detach();
 			$el.toggleClass('well');
 			$("#pastIngredients").append($el);
@@ -144,6 +150,11 @@
 				}
 			}
 
+			//for show page table
+			var $ingredientListing =$('[data-ingredientId="' + ingred.id + '"]');
+			$ingredientListing.switchClass('future', 'current', 2000);
+
+			//for jumbo under /run
 			var $el = $("#ingredientId" + ingred.id).detach();
 			$el.toggleClass('well');
 			$("#currentIngredients").append($el);

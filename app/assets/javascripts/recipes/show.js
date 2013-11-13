@@ -14,12 +14,16 @@ var addToGraph = function(id, name, time, totalTime) {
 		}
 	});
 
-	$("#ingredient" + id).append("<span class='progress-bar'></span>");
-
 	//this line readjusts the css-left to actually be at 0
 	$slider = $("#ingredient" + id).find('a').css('left', time + '%');
 	
 	$("#ingredient" + id).slider('disable');	
+};
+
+var addProgressBar = function() {
+	$(".ingredient-slider").first().append("<span class='progress-bar'></span>");
+	$(".progress-bar").height($("#graph").height() + 29); //the 30 is the two margins of 15px each
+	// $(".progress-bar")
 };
 
 var makeRecipeEditable = function(event) {

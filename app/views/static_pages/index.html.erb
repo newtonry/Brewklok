@@ -9,7 +9,7 @@
 <div class='container'>
 	<h2>Recent Brews</h2>
 	<% @recipes.each do |recipe| %>
-		<h4><a href="<%= recipe_url(recipe) %>"><%= recipe.name %></a></h4>
+		<h3><a href="<%= recipe_url(recipe) %>"><%= recipe.name %></a></h3>
 		<p><%= recipe.notes %></p>
 
 	<% end %>

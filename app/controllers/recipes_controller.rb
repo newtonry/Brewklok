@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.includes(:ingredients).find(params[:id])
 
     respond_to do |format|
-      format.html 
+      format.html { render :show }
       format.json { render :json => @recipe, include: :ingredients }
     end
   end

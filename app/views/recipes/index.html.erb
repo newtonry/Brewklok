@@ -1,10 +1,10 @@
 <div class='container'>
 	<h2>Brew Recipes</h2>
 	<% @recipes.each do |recipe| %>
-		<ul><a href="<%= recipe_url(recipe) %>"><%= recipe.name %></a>
+		<h3><a href="<%= recipe_url(recipe) %>"><%= recipe.name %></a></h3>
+		<h4>by <%= recipe.user.username %></h4>
 		<% recipe.ingredients.each do |ingredient| %>
 			<li><%= ingredient.name %> - at <%= ingredient.time %> min</li>
-		<% end %>
-		</ul>
+			<% end %>
 	<% end %>
 </div>

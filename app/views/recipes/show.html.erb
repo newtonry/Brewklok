@@ -1,22 +1,18 @@
 <div class='container'>
 	<div class='row'>
-		<h2 class="col-md-6"><%= @recipe.name %>
-			<a href="<%= run_recipe_url(@recipe) %>"><button class="btn btn-warning" >Brew!</button></a>
-		</h2>
-		<div class="col-md-6" id='clock'>00:00:00</div>
+		<div class="col-md-6"><h2><%= @recipe.name %></h2>
+			<% if !@recipe.notes.nil? %>
+				<p><%= @recipe.notes %></p>
+			<% end %>			
+		</div>
+		<div class="col-md-3"><h1 class='show-clock-text' id='clock'>00:00:00</h1></div>
+		<div class="col-md-3">
+			<%= render partial: "recipes/mode_dropdown"%>
+			<h1><button class="btn btn-warning" onClick="bh.start('#clock');">Brew!</button></h1>
+		</div>
 	</div>
-	<% if !@recipe.notes.nil? %>
-		<h5><%= @recipe.notes %></h5>
-	<% end %>
-
+	<!-- <p><a href="<%= run_recipe_url(@recipe) %>">Switch to jumbo mode</a></p> -->
 	<div id='graph-container' class='container'>
-		<!-- <div id='graph-container-background'>
-			<div id='graph-container-background-padding' class='col-md-2'>
-			</div>
-			<div id='graph-container-background-progress' class='col-md-10'>
-			</div>
-		</div> -->
-		
 		<div id='graph'>			
 		</div>
 	</div>
@@ -69,4 +65,5 @@
 			bh = new BrewHandler(recipe);
 			bh.fillFuture();
 		});
+	addProgressBar();
 	</script>
