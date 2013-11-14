@@ -62,7 +62,6 @@ h1, h2, h3, h4 {
 #nav-img {
 	height:25px;
 	float: left;
-	
 }
 
 #pastIngredients .details {
@@ -80,6 +79,7 @@ h1, h2, h3, h4 {
 #alert-message {
 	position: absolute;
 	width: 100%;
+	height: 56px;
 	display: none;
 /*	margin-top: -70px;*/
 }
@@ -91,7 +91,6 @@ h1, h2, h3, h4 {
 
 .graph-ingredient-name {
 	font-size: 80%;
-	
 }
 
 .highlighted-table{
@@ -115,6 +114,10 @@ h1, h2, h3, h4 {
 	background-color: rgba(0, 255, 0, 0.2);
 	
 	
+}
+
+.login-input {
+	width: 25%;
 }
 
 .past {

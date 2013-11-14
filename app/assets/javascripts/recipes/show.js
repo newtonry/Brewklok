@@ -34,9 +34,7 @@ var addGrid = function(totalTime) {
 	for(var timeValue = 0; timeValue  <= totalTime -5; timeValue += 5) {
 		$("#graph-grid-slider").append("<span style='position: absolute; left:" + timeValue / totalTime * 100 + "%;'>" + timeValue + "</span>");
 		console.log('asfdaf');
-		
 	}
-
 };
 
 var addProgressBar = function() {
@@ -59,8 +57,7 @@ var makeRecipeEditable = function(event) {
 }
 
 var saveRecipe = function(event) {
-	var params = {recipe: {}};
-	
+	var params = {recipe: {}};	
 	var newIngredients =$("#ingredient-table-body").find(".ingredient-listing");
 	
 	for(var i=0; i < newIngredients.length; i++) {
@@ -80,15 +77,10 @@ var saveRecipe = function(event) {
 		type: "PATCH",
 		dataType: 'json',
 		success: function(resp) {
-			// console.log('saved');
-			$('nav').prepend('<div id="alert-message" class="alert alert-success">Saved!</div>');
-			$('#alert-message').fadeIn('fast').delay(1000).fadeOut('fast', function() {
-			$('#alert-message').remove();
-		});
+			alertMessage('Changes saved!','success');
 		},
-		
 		error: function(resp) {
-			console.log('There was an error in the save.');
+			alertMessage('There was an error in the save.','danger');
 		}		
 	});
 	
@@ -96,13 +88,17 @@ var saveRecipe = function(event) {
 }
 
 var cancelSaveRecipe = function() {
-	// $("#graph").b
-	// debugger
 	$("#ingredient-table").replaceWith(this.oldIngredientTable);
 	
 	revertSliderValues();
-	
 	makeRecipeUneditable();
+
+	//have to run this line again for quickfix
+	//what's happening is everything is replaced with the old ingredient table, which has the pre-editable version of highlighted table
+	$("#ingredient-table").toggleClass("highlighted-table");
+
+
+	alertMessage('Changes cancelled!' , 'warning');
 };
 
 var getCurrentGraphValues = function() {
@@ -149,30 +145,14 @@ var addChangeListeners = function(id) {
 	});
 };
 
-
-
 var makeRecipeUneditable = function(event) {
 	$("#graph").find('.ingredient-slider').slider('disable');
-
 	$('.ingredient-attr').attr("contentEditable", "false");
 	$("#save-button").hide('fast');	
 	$("#cancel-save-button").hide('fast');
 	$("#edit-button").show('fast');
 	$("#ingredient-table").toggleClass("highlighted-table");
 }
-
-var startBrew = function() {
-	var e = event.target;
-	$(event.target).switchClass( "btn-success", "btn-info", 1000, function(){
-		alert('swithcalss');
-		// debugger
-		$(e).click(function() { pauseBrew();});
-		
-	});
-	
-	bh.start('#clock');	
-}
-	
 
 var bindBrewActionHandler = function($el) {
 	var brewingState = undefined;

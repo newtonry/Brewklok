@@ -1,6 +1,6 @@
 <div class='container'>
 	<h1>Login</h1>
-	<h4>And manage and track your brews, or <a href='<%= new_user_url %>'>register</a> to do so</h4>
+	<p>And manage and track your brews, or <a href='<%= new_user_url %>'>register</a> to do so</p>
 	<div class='well'>
 		<form action="<%= session_url %>" method="POST">
 			<%= render partial: 'shared/login_form' %>	

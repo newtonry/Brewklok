@@ -16,10 +16,12 @@
 		<!-- <%= current_user.username if logged_in? %>	 -->
 		<% if !flash[:errors].nil? %>
 			<% flash[:errors].each do |error| %>
-				<li><%= error %></li>
+			<script>
+				alertMessage('<%= error %>', 'danger');
+				<% flash[:errors] = nil %>
+				</script>
 			<% end %>
 		<% end %>
-
 		<%= yield %>
 	<!-- </div> -->
 </body>
