@@ -8,7 +8,7 @@
 		<div class="col-md-3"><h1 class='show-clock-text' id='clock'>00:00:00</h1></div>
 		<div class="col-md-3">
 			<%= render partial: "recipes/mode_dropdown"%>
-			<h1><button class="btn btn-warning" onClick="bh.start('#clock');">Brew!</button></h1>
+			<h1><button class="btn btn-success" id='brew-action-button'>Begin Brew!</button></h1>
 		</div>
 	</div>
 	<!-- <p><a href="<%= run_recipe_url(@recipe) %>">Switch to jumbo mode</a></p> -->
@@ -38,7 +38,7 @@
 
 		<tbody id="ingredient-table-body">
 			<% @recipe.ingredients.each do |ingredient| %>
-			<tr class='ingredient-listing' data-ingredientId="<%= ingredient.id %>">
+			<tr class='ingredient-listing future' data-ingredientId="<%= ingredient.id %>">
 				<td class='ingredient-attr ingredient-time'><%= ingredient.time %></td>
 				<td class='ingredient-attr ingredient-name'><%= ingredient.name %></td>
 				<td class='ingredient-attr ingredient-amount'><%= ingredient.amount %></td>
@@ -64,6 +64,11 @@
 			recipe.totalTime = recipe.ingredients[recipe.ingredients.length-1].time + 5;
 			bh = new BrewHandler(recipe);
 			bh.fillFuture();
+			
+			addGrid(recipe.totalTime);
 		});
+		
 	addProgressBar();
+	
+	bindBrewActionHandler($('#brew-action-button'));	
 	</script>

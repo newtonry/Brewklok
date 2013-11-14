@@ -11,13 +11,32 @@ var addToGraph = function(id, name, time, totalTime) {
 		min: -1,
 		slide: function() {
 			$('[data-ingredientId="' + id + '"]').find('.ingredient-time').html($("#ingredient" + id).slider( "value"));
+			
+			console.log("value: " + $("#ingredient" + id).slider( "value"));
+			console.log("left: " + $("#ingredient" + id).find('a').css('left'));
+			
 		}
 	});
 
 	//this line readjusts the css-left to actually be at 0
-	$slider = $("#ingredient" + id).find('a').css('left', time + '%');
+	// $slider = $("#ingredient" + id).find('a').css('left', time + '%');
 	
 	$("#ingredient" + id).slider('disable');	
+};
+
+var addGrid = function(totalTime) {
+	var newRow = $("#graph").append("<div class='row'></div>").find('.row').last();
+  newRow.append("<div id='graph-grid-name' class='graph-ingredient-name col-md-2'>" + 'sadfasdf' + "</div>");
+	newRow.append("<div id='graph-grid-slider' class='col-md-10'></div>");
+	$("#graph-grid-slider").slider();
+	$("#graph-grid-slider").slider('disable');
+
+	for(var timeValue = 0; timeValue  <= totalTime -5; timeValue += 5) {
+		$("#graph-grid-slider").append("<span style='position: absolute; left:" + timeValue / totalTime * 100 + "%;'>" + timeValue + "</span>");
+		console.log('asfdaf');
+		
+	}
+
 };
 
 var addProgressBar = function() {
@@ -27,8 +46,8 @@ var addProgressBar = function() {
 };
 
 var makeRecipeEditable = function(event) {
-	// this.oldGraph = _.extend({}, $("#graph"));
-	this.oldIngredientTable = _.extend({}, $("#ingredient-table"));
+	this.oldGraphValues = this.getCurrentGraphValues();
+	this.oldIngredientTable = $("#ingredient-table").clone();
 
 	$("#graph").find('.ingredient-slider').slider('enable');
 	$('.ingredient-attr').attr("contentEditable", "true");
@@ -78,25 +97,47 @@ var saveRecipe = function(event) {
 
 var cancelSaveRecipe = function() {
 	// $("#graph").b
-	debugger
+	// debugger
 	$("#ingredient-table").replaceWith(this.oldIngredientTable);
 	
+	revertSliderValues();
 	
-	// makeRecipeUneditable();
+	makeRecipeUneditable();
 };
+
+var getCurrentGraphValues = function() {
+	var currentValues = [];
+	
+	for(var i = 0; i < $(".ingredient-slider").length; i++) {
+		var currentValue = $($(".ingredient-slider")[i]).slider("value");
+		currentValues.push(currentValue);
+	}
+	return currentValues;
+};
+
+var revertSliderValues = function() {	
+	for(var i = 0; i < $(".ingredient-slider").length; i++) {
+		$($(".ingredient-slider")[i]).slider("value", this.oldGraphValues[i]);
+	}
+};
+
 
 
 var addChangeListeners = function(id) {
 	//if the time is changed, need to update the graph as well
 	$('[data-ingredientId="' + id + '"]').find('.ingredient-time').blur(function(){
 		var newValue = $('[data-ingredientId="' + id + '"]').find('.ingredient-time').html();
-		$slider = $("#ingredient" + id).find('a');
-		// $slider.css('left', newValue + '%');
-		$slider.animate({
-			left: newValue + '%'
-		}, 250, function(){
-			//animation complete callback
-		});
+
+		// $slider = $("#ingredient" + id).find('a');
+		// $slider.css('left', newValue/recipe.totalTime*100 + '%');
+
+		$("#ingredient" + id).slider("value", newValue);
+
+		// $slider.animate({
+		// 	value: newValue //+ '%'
+		// }, 250, function(){
+		// 	//animation complete callback
+		// });
 	
 	});
 	
@@ -111,7 +152,6 @@ var addChangeListeners = function(id) {
 
 
 var makeRecipeUneditable = function(event) {
-	// $("#graph").children().slider('disable');
 	$("#graph").find('.ingredient-slider').slider('disable');
 
 	$('.ingredient-attr').attr("contentEditable", "false");
@@ -120,3 +160,48 @@ var makeRecipeUneditable = function(event) {
 	$("#edit-button").show('fast');
 	$("#ingredient-table").toggleClass("highlighted-table");
 }
+
+var startBrew = function() {
+	var e = event.target;
+	$(event.target).switchClass( "btn-success", "btn-info", 1000, function(){
+		alert('swithcalss');
+		// debugger
+		$(e).click(function() { pauseBrew();});
+		
+	});
+	
+	bh.start('#clock');	
+}
+	
+
+var bindBrewActionHandler = function($el) {
+	var brewingState = undefined;
+	
+	var brewActionHandler = function () {
+		if (brewingState === undefined) {
+			brewingState = "unpaused";
+			bh.start("#clock");
+			$el.switchClass( "btn-success", "btn-info", 1000, function(){ 
+				$el.html('Pause');
+			});
+
+		} else if (brewingState === "unpaused") {
+			brewingState = "paused";
+			bh.pause();
+			$el.switchClass( "btn-info", "btn-success", 1000, function(){ 
+				$el.html('Unpause');
+			});
+			
+			
+		} else {
+			brewingState = "unpaused";
+			bh.unpause();
+			$el.switchClass( "btn-success", "btn-info", 1000, function(){ 
+				$el.html('Pause');
+			});
+			
+		}
+	}
+	
+	$el.click(brewActionHandler);
+};

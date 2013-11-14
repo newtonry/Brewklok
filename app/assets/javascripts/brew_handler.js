@@ -71,12 +71,15 @@
 
 		currentInterval = setInterval(function() { 	
 			that.timer.updateElement(that.element);//updates the timer, which is visually 'element'
+			var percentDone = that.timer.timeDifference() / 1000 / recipe.totalTime * 100;
+			$('.progress-bar').width(percentDone + '%');
+			
 						
 			var toBeAddedIngredients = that.getTBAdd() || [];			
 			var toBeRemovedIngredients = that.getTBRem() || [];
 			
 			that.process(toBeAddedIngredients, toBeRemovedIngredients);			
-		}, 1000);
+		}, 500);
 	};
 
 	BrewHandler.prototype.getTBRem = function() {
@@ -130,7 +133,7 @@
 			
 			//for show page table
 			var $ingredientListing =$('[data-ingredientId="' + ingred.id + '"]');
-			$ingredientListing.switchClass('current', 'past', 2000);
+			$ingredientListing.switchClass('current', 'past', 4000);
 						
 			//for jumbo under /run
 			var $el = $("#ingredientId" + ingred.id).detach();
