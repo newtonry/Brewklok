@@ -2,10 +2,11 @@
 	<h1>Login</h1>
 	<p>And manage and track your brews, or <a href='<%= new_user_url %>'>register</a> to do so</p>
 	<div class='well'>
-		<form action="<%= session_url %>" method="POST">
+		<form action="<%= session_url %>" method="POST" id="login_form">
 			<%= render partial: 'shared/login_form' %>	
-	
-			<p><input class="btn btn-success" type="submit" value="Login"></p>
+			<br>
+			<p><input class="btn btn-success" type="submit" value="Login" id="submit_login"></p>
 		</form>
+		<a href="#" onClick="loginAsGuest();">Login as a guest</a>
 	</div>
 </div>

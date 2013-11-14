@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
     if @user.save
       login(@user)
+      flash[:success] = ["Thank you for signing up #{@user.username}!"]
       redirect_to user_url(@user)
     else
       flash[:errors] = @user.errors.full_messages

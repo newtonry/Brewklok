@@ -1,0 +1,17 @@
+<% if !flash[:errors].nil? %>
+	<% flash[:errors].each do |error| %>
+	<script>
+		alertMessage('<%= error %>', 'danger');
+		<% flash[:errors] = nil %>
+		</script>
+	<% end %>
+<% end %>
+
+<% if !flash[:success].nil? %>
+	<% flash[:success].each do |success| %>
+	<script>
+		alertMessage('<%= success %>', 'success');
+		<% flash[:success] = nil %>
+		</script>
+	<% end %>
+<% end %>

@@ -1,4 +1,11 @@
 <div class='container'>
+
+	<% if !logged_in? %>
+		<div class='.row'>		
+			<p>Please <a href='<%= new_session_url %>'>login</a> to add recipes</p>
+		</div>
+	<% end%>
+	
 	<div class="col-md-6">
 		<form action="<%= recipes_url %>" method="POST" role="form" id='recipe-form'>
 			<%= render partial: 'shared/auth_token'%>
@@ -10,16 +17,20 @@
 				<br>
 			</div>
 
-			<h2>Ingredients</h2>
-		
-			<script>
-				var ingredientId = 0;
-				addIngredientForm();
-				//should use a JST template later
-				//refers to templates/ingredient_form.js variable
-			</script>
+			<h2>Ingredients</h2>		
 				<button onClick="addIngredientForm();return false;">+</button> <br><br><br>
 			<p><input class="btn btn-success" type="submit" value="Submit Recipe" id="submit_recipe"></p>
 		</form>
 	</div>
 </div>
+
+
+<script>
+	var ingredientId = 0;
+	addIngredientForm();
+	<% if !logged_in? %>
+		$('#submit_recipe').prop('disabled', true)
+	<% end%>
+	//should use a JST template later
+	//refers to templates/ingredient_form.js variable
+</script>

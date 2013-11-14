@@ -14,14 +14,7 @@
 <body>
 	<!-- <div class="container"> -->
 		<!-- <%= current_user.username if logged_in? %>	 -->
-		<% if !flash[:errors].nil? %>
-			<% flash[:errors].each do |error| %>
-			<script>
-				alertMessage('<%= error %>', 'danger');
-				<% flash[:errors] = nil %>
-				</script>
-			<% end %>
-		<% end %>
+		<%= render partial: 'shared/flash_messages' %>
 		<%= yield %>
 	<!-- </div> -->
 </body>

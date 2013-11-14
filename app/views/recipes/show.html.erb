@@ -17,14 +17,10 @@
 		</div>
 	</div>
 
-	<h3>
-		Ingredients 
-		<i class="glyphicon glyphicon-edit" id="edit-button" data-recipeid="<%= @recipe.id %>"
-			onClick="makeRecipeEditable(event);"></i>
-			
-		<i class="glyphicon glyphicon-floppy-disk" id="save-button" onClick="saveRecipe();"></i>
-		<i class="glyphicon glyphicon-floppy-remove" id="cancel-save-button" onClick="cancelSaveRecipe();"></i>	
-	</h3>
+	<div class='row'>
+	<h3>Ingredients
+		<%= render partial: 'recipes/display_edit_buttons' %>
+	</div>
 
 	<table class="table" id="ingredient-table">
 		<thead>
@@ -69,6 +65,6 @@
 		});
 		
 	addProgressBar();
-	
+	$("#mode-dropdown").dropdown();
 	bindBrewActionHandler($('#brew-action-button'));	
 	</script>
