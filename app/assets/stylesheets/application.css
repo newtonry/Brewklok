@@ -18,7 +18,12 @@ h1, h2, h3, h4 {
 }
 
 #brew-action-button {
-	width: 50%;
+	width: 50%;	
+}
+
+#clock {
+	font-size: 5em;
+	
 }
 
 #display-timer {
@@ -105,15 +110,12 @@ h1, h2, h3, h4 {
 	height: 25px;
 }
 
-
 .future {
 	background-color: none;
 }
 
 .current {
 	background-color: rgba(0, 255, 0, 0.2);
-	
-	
 }
 
 .login-input {
@@ -122,31 +124,26 @@ h1, h2, h3, h4 {
 
 .past {
 	background-color: rgba(100, 100, 100, 0.2);
-	
 }
 
 .progress-bar {
 	left: 0%;
 	margin-top: -15px;
-/*	margin-left: -1%;
-*/	background: rgba(0, 255, 0, 0.1);
+	background: rgba(238, 200, 54, 0.2);
 	position:absolute;
 	border: 0px;
 }
 
-.show-clock-text {
-}
-
-
 .ui-slider {
 	background: none;
-/*	background-color: yellow;*/
-
 }
 
 .ui-slider-handle:focus {
-outline: 0;/*	background-color: yellow;*/
+	outline: 0;
+}
 
+.ingredient-done-handle {
+	background: url('/assets/brewklok-circle-sm.png');
 }
 
 .jumbotron-info {

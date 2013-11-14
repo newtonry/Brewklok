@@ -35,27 +35,24 @@
 			$('.pause-button').show();
 		});
 		
-		
-		
 		//need to do this for ingredients that start at 0, should fix
 		var toBeAddedIngredients = that.getTBAdd() || [];			
 		var toBeRemovedIngredients = that.getTBRem() || [];
 		
 		that.process(toBeAddedIngredients, toBeRemovedIngredients);		
 		
-		
 		//setting interval to a global variable to abuse scope if user leaves timer page then comes back, now I can kill the old timers
 		currentInterval = setInterval(function() { 	
 			that.timer.updateElement(element);//updates the timer, which is visually 'element'
 			var percentDone = (that.timer.timeDifference() / 1000 / recipe.totalTime * 100) / that.modeModifier;
-			console.log(percentDone);
-			$('.progress-bar').width(percentDone + '%');
+
+			that.handlePercentDone(percentDone);
 			 
 			var toBeAddedIngredients = that.getTBAdd() || [];			
 			var toBeRemovedIngredients = that.getTBRem() || [];
 			
 			that.process(toBeAddedIngredients, toBeRemovedIngredients);			
-		}, 500);
+		}, 200);
 	
 	};
 
@@ -66,6 +63,15 @@
 		$('.pause-button').fadeOut('fast', function(){
 			$('.unpause-button').show();
 		});
+		
+	};
+
+	BrewHandler.prototype.handlePercentDone = function (percentDone) {
+		if (percentDone < 100) {
+			$('.progress-bar').width(percentDone + '%');
+		} else if (Math.floor(percentDone) == 100) {
+			alertMessage("The brew is complete!", "success");
+		}
 		
 	};
 
@@ -86,9 +92,9 @@
 		currentInterval = setInterval(function() { 	
 			that.timer.updateElement(that.element);//updates the timer, which is visually 'element'
 			var percentDone = (that.timer.timeDifference() / 1000 / recipe.totalTime * 100) / that.modeModifier;
-			$('.progress-bar').width(percentDone + '%');
-			
-						
+		
+			that.handlePercentDone(percentDone);
+									
 			var toBeAddedIngredients = that.getTBAdd() || [];			
 			var toBeRemovedIngredients = that.getTBRem() || [];
 			
@@ -96,12 +102,13 @@
 		}, 500);
 	};
 
+	//returns the ingredients that need to be removed from current
 	BrewHandler.prototype.getTBRem = function() {
 		var toBeRemoved = [];
 		var time = this.timer.timeDifference();
 		
 		for(var i = 0; i < this.current.length; i++) {
-			if(Math.floor((time /1000) / this.modeModifier)  - this.current[i].time > (5 * this.modeModifier)){
+			if(Math.floor((time /1000) / this.modeModifier)  - this.current[i].time >= 5){
 				toBeRemoved.push(this.current[i]);
 			}
 		}
@@ -114,7 +121,7 @@
 		var time = this.timer.timeDifference();
 				
 		for(var i = 0; i < this.future.length; i++) {
-				if (this.future[i].time === Math.floor((time/1000) / this.modeModifier)) { //going by seconds for now					
+				if (this.future[i].time === Math.floor((time/1000) / this.modeModifier)) {					
 				toBeAddedIngredients.push(this.future[i]);
 			}
 		}	
@@ -161,8 +168,7 @@
 			for(var i = 0; i < that.future.length; i++) {
 				if (ingred.id === that.future[i].id) {
 					that.future.splice(i, 1);
-					that.current.push(ingred);			
-							
+					that.current.push(ingred);
 					break;
 				}
 			}
@@ -170,6 +176,9 @@
 			//for show page table
 			var $ingredientListing =$('[data-ingredientId="' + ingred.id + '"]');
 			$ingredientListing.switchClass('future', 'current', 2000);
+			//for show page graph
+			$("#ingredient" + ingred.id).find('a').css('background', "url('/assets/brewklok-circle-sm.png')");
+			
 
 			//for jumbo under /run
 			var $el = $("#ingredientId" + ingred.id).detach();

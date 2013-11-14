@@ -10,36 +10,36 @@ var addToGraph = function(id, name, time, totalTime) {
 		max: totalTime + 1,
 		min: -1,
 		slide: function() {
-			$('[data-ingredientId="' + id + '"]').find('.ingredient-time').html($("#ingredient" + id).slider( "value"));
-			
-			console.log("value: " + $("#ingredient" + id).slider( "value"));
-			console.log("left: " + $("#ingredient" + id).find('a').css('left'));
-			
+			var currentValue = $("#ingredient" + id).slider( "value");
+			$('[data-ingredientId="' + id + '"]').find('.ingredient-time').html(currentValue);
+			$("#ingredient" + id).find('a').css('left', Math.floor(currentValue/totalTime * 100) + '%');
+		},
+		change: function() {
+			var currentValue = $("#ingredient" + id).slider( "value");
+			$("#ingredient" + id).find('a').css('left', Math.floor(currentValue/totalTime * 100) + '%');
 		}
 	});
 
 	//this line readjusts the css-left to actually be at 0
-	// $slider = $("#ingredient" + id).find('a').css('left', time + '%');
-	
+	$("#ingredient" + id).find('a').css('left', Math.floor(time/totalTime * 100) + '%');
 	$("#ingredient" + id).slider('disable');	
 };
 
 var addGrid = function(totalTime) {
 	var newRow = $("#graph").append("<div class='row'></div>").find('.row').last();
-  newRow.append("<div id='graph-grid-name' class='graph-ingredient-name col-md-2'>" + 'sadfasdf' + "</div>");
+  newRow.append("<div id='graph-grid-name' class='graph-ingredient-name col-md-2'></div>");
 	newRow.append("<div id='graph-grid-slider' class='col-md-10'></div>");
 	$("#graph-grid-slider").slider();
 	$("#graph-grid-slider").slider('disable');
 
 	for(var timeValue = 0; timeValue  <= totalTime -5; timeValue += 5) {
-		$("#graph-grid-slider").append("<span style='position: absolute; left:" + timeValue / totalTime * 100 + "%;'>" + timeValue + "</span>");
-		console.log('asfdaf');
+		$("#graph-grid-slider").append("<span style='position: absolute; margin-left: -3px; left:" + timeValue / totalTime * 100 + "%;'>" + timeValue + "</span>");
 	}
 };
 
 var addProgressBar = function() {
 	$(".ingredient-slider").first().append("<span class='progress-bar'></span>");
-	$(".progress-bar").height($("#graph").height() + 29); //the 30 is the two margins of 15px each
+	$(".progress-bar").height($("#graph").height() + 30); //the 30 is the two margins of 15px each
 	// $(".progress-bar")
 };
 
@@ -97,7 +97,6 @@ var cancelSaveRecipe = function() {
 	//what's happening is everything is replaced with the old ingredient table, which has the pre-editable version of highlighted table
 	$("#ingredient-table").toggleClass("highlighted-table");
 
-
 	alertMessage('Changes cancelled!' , 'warning');
 };
 
@@ -123,25 +122,12 @@ var addChangeListeners = function(id) {
 	//if the time is changed, need to update the graph as well
 	$('[data-ingredientId="' + id + '"]').find('.ingredient-time').blur(function(){
 		var newValue = $('[data-ingredientId="' + id + '"]').find('.ingredient-time').html();
-
-		// $slider = $("#ingredient" + id).find('a');
-		// $slider.css('left', newValue/recipe.totalTime*100 + '%');
-
 		$("#ingredient" + id).slider("value", newValue);
-
-		// $slider.animate({
-		// 	value: newValue //+ '%'
-		// }, 250, function(){
-		// 	//animation complete callback
-		// });
-	
 	});
 	
 	$('[data-ingredientId="' + id + '"]').find('.ingredient-name').blur(function(){
 		var newName = $('[data-ingredientId="' + id + '"]').find('.ingredient-name').html();
-		// debugger
 		$nameInGraph = $("#graph-name" + id).html(newName);
-	
 	});
 };
 
@@ -161,25 +147,21 @@ var bindBrewActionHandler = function($el) {
 		if (brewingState === undefined) {
 			brewingState = "unpaused";
 			bh.start("#clock");
-			$el.switchClass( "btn-success", "btn-info", 1000, function(){ 
+			$el.switchClass( "btn-success", "btn-info", 500, function(){ 
 				$el.html('Pause');
 			});
-
 		} else if (brewingState === "unpaused") {
 			brewingState = "paused";
 			bh.pause();
-			$el.switchClass( "btn-info", "btn-success", 1000, function(){ 
+			$el.switchClass( "btn-info", "btn-warning", 500, function(){ 
 				$el.html('Unpause');
 			});
-			
-			
 		} else {
 			brewingState = "unpaused";
 			bh.unpause();
-			$el.switchClass( "btn-success", "btn-info", 1000, function(){ 
+			$el.switchClass( "btn-warning", "btn-info", 500, function(){ 
 				$el.html('Pause');
 			});
-			
 		}
 	}
 	
