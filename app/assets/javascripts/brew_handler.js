@@ -6,12 +6,25 @@
 		this.past = [];
 		this.current = [];
 		this.future = recipe.ingredients;
-		
+		this.mode = 'demo';
+		this.modeModifier = 1;
 		//removes any previous intervals
 		if (!(typeof currentInterval === 'undefined')) {
 			clearInterval(currentInterval);
 		}
 	}
+
+	BrewHandler.prototype.setMode = function(mode) {
+		if (mode === 'demo') {
+			this.mode = 'demo';
+			this.modeModifier = 1;			
+			$("#mode-dropdown").html('Demo Mode <span class="caret"></span>');
+		} else if (mode === 'realtime') {
+			this.mode = 'realtime';
+			this.modeModifier = 60;
+			$("#mode-dropdown").html('Brew Mode <span class="caret"></span>');
+		}
+	};
 	
 	BrewHandler.prototype.start = function(element) {	
 		this.element = element;
@@ -34,7 +47,8 @@
 		//setting interval to a global variable to abuse scope if user leaves timer page then comes back, now I can kill the old timers
 		currentInterval = setInterval(function() { 	
 			that.timer.updateElement(element);//updates the timer, which is visually 'element'
-			var percentDone = that.timer.timeDifference() / 1000 / recipe.totalTime * 100;
+			var percentDone = (that.timer.timeDifference() / 1000 / recipe.totalTime * 100) / that.modeModifier;
+			console.log(percentDone);
 			$('.progress-bar').width(percentDone + '%');
 			 
 			var toBeAddedIngredients = that.getTBAdd() || [];			
@@ -71,7 +85,7 @@
 
 		currentInterval = setInterval(function() { 	
 			that.timer.updateElement(that.element);//updates the timer, which is visually 'element'
-			var percentDone = that.timer.timeDifference() / 1000 / recipe.totalTime * 100;
+			var percentDone = (that.timer.timeDifference() / 1000 / recipe.totalTime * 100) / that.modeModifier;
 			$('.progress-bar').width(percentDone + '%');
 			
 						
@@ -87,7 +101,7 @@
 		var time = this.timer.timeDifference();
 		
 		for(var i = 0; i < this.current.length; i++) {
-			if(Math.floor(time/1000) - this.current[i].time > 5){
+			if(Math.floor((time /1000) / this.modeModifier)  - this.current[i].time > (5 * this.modeModifier)){
 				toBeRemoved.push(this.current[i]);
 			}
 		}
@@ -100,7 +114,7 @@
 		var time = this.timer.timeDifference();
 				
 		for(var i = 0; i < this.future.length; i++) {
-				if (this.future[i].time === Math.floor(time/1000)) { //going by seconds for now					
+				if (this.future[i].time === Math.floor((time/1000) / this.modeModifier)) { //going by seconds for now					
 				toBeAddedIngredients.push(this.future[i]);
 			}
 		}	
