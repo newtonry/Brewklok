@@ -5,7 +5,6 @@ var loadRecipe = function(id, path, callback)
 		type: 'GET',
 		dataType: 'json',
 		success: callback,
-		
 		error: function(resp){debugger}
 	});
 };
