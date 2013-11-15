@@ -3,5 +3,4 @@ class StaticPagesController < ApplicationController
     @recipes = Recipe.find(:all, limit: 5, order: 'created_at desc')
     render :index
   end
-
 end

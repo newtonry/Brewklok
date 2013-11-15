@@ -77,7 +77,15 @@ var saveRecipe = function(event) {
 		type: "PATCH",
 		dataType: 'json',
 		success: function(resp) {
-			alertMessage('Changes saved!','success');
+		
+			//have to reload the recipe, should figure out better way to do this
+			loadRecipe(recipe.id, "./", function(resp){ 
+				recipe = resp; 
+				recipe.totalTime = recipe.ingredients[recipe.ingredients.length-1].time + 5;
+				bh = new BrewHandler(recipe);
+				bh.fillFuture();
+				alertMessage('Changes saved!','success');		
+			});
 		},
 		error: function(resp) {
 			alertMessage('There was an error in the save.','danger');
@@ -115,8 +123,6 @@ var revertSliderValues = function() {
 		$($(".ingredient-slider")[i]).slider("value", this.oldGraphValues[i]);
 	}
 };
-
-
 
 var addChangeListeners = function(id) {
 	//if the time is changed, need to update the graph as well

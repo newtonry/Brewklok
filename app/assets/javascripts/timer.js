@@ -32,7 +32,6 @@
 		$(element).html(this.timeToString(this.timeDifference())); 
 	};
 	
-	
 	Timer.prototype.pause = function() {
 		clearInterval(this.intervalId);
 		this.pauseStart = new Date().getTime(); 
@@ -41,5 +40,4 @@
 	Timer.prototype.unpause = function() {
 		this.pausedTime = this.pausedTime + (new Date().getTime() - this.pauseStart);
 	};
-	
 })(this);

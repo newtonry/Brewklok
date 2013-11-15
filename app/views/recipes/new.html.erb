@@ -1,5 +1,4 @@
 <div class='container'>
-
 	<% if !logged_in? %>
 		<div class='.row'>		
 			<p>Please <a href='<%= new_session_url %>'>login</a> to add recipes</p>
@@ -16,14 +15,11 @@
 				<input class="form-control" type="text" name="recipe[name]" value="" id="recipe_name">
 				<br>
 			</div>
-
-			<h2>Ingredients</h2>		
-				<button onClick="addIngredientForm();return false;">+</button> <br><br><br>
+			<h2>Ingredients <button class="btn btn-default"  onClick="addIngredientForm();return false;">+</button></h2>
 			<p><input class="btn btn-success" type="submit" value="Submit Recipe" id="submit_recipe"></p>
 		</form>
 	</div>
 </div>
-
 
 <script>
 	var ingredientId = 0;

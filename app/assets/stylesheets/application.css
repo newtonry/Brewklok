@@ -28,7 +28,6 @@ h1, h2, h3, h4 {
 
 #clock {
 	font-size: 5em;
-	
 }
 
 #display-timer {
@@ -37,6 +36,7 @@ h1, h2, h3, h4 {
 
 #front-page-jumbo {
 	background: url('/assets/beer1-narrow.png');
+	background-repeat:no-repeat;
 	color: white;
 	margin-top: -20px;
 }
