@@ -41,7 +41,7 @@ h1, h2, h3, h4 {
 }
 
 #graph-container {
-	background-color: rgba(255, 255, 255, .9);
+	background-color: rgba(255, 255, 255, .5);
 	padding: 15px;
 	border: 1px;
 	border-style:solid;
@@ -61,7 +61,10 @@ h1, h2, h3, h4 {
 
 #index-logo {
 	width: 100%;
-/*	display: none;*/
+}
+
+#ingredient-table {
+/*	background: rgba(255, 255, 255, 0.7);*/
 }
 
 #nav-img {
@@ -86,7 +89,6 @@ h1, h2, h3, h4 {
 	width: 100%;
 	height: 56px;
 	display: none;
-/*	margin-top: -70px;*/
 }
 
 .btn {
@@ -147,7 +149,7 @@ h1, h2, h3, h4 {
 }
 
 .jumbotron-info {
-	background-color: rgba(50,50,50,0.5);
+	background-color: rgba(50,50,50,0.6);
 	padding: 2%;
 	font-family: 'Raleway', sans-serif;
 	font-weight: 400;

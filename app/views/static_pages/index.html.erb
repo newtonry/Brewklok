@@ -8,7 +8,8 @@
 			<div class="col-md-10">
 			  <h1>Welcome to Brewklok!</h1>
 			  <p>Ready to brew some beer?</p>
-			  <p><a href="<%= about_url %>" class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+			  <!-- <p><a href="<%= about_url %>" class="btn btn-primary btn-lg" role="button">Learn more</a></p> -->
+			  <p><a href="<%= recipe_url(2) %>" class="btn btn-primary btn-lg" role="button">Test a brew!</a></p>
 			</div>
 		</div>
 	</div>
@@ -19,6 +20,5 @@
 	<% @recipes.each do |recipe| %>
 		<h3><a href="<%= recipe_url(recipe) %>"><%= recipe.name %></a></h3>
 		<p><%= recipe.notes %></p>
-
 	<% end %>
 </div>

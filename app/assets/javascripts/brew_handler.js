@@ -27,6 +27,7 @@
 	};
 	
 	BrewHandler.prototype.start = function(element) {	
+		alertMessage("Brew started!", "success");
 		this.element = element;
 		var that = this;	
 		this.timer.startTime = new Date().getTime();
@@ -53,10 +54,10 @@
 			
 			that.process(toBeAddedIngredients, toBeRemovedIngredients);			
 		}, 200);
-	
 	};
 
 	BrewHandler.prototype.pause = function() {
+		alertMessage("Brew paused!", "info");
 		clearInterval(currentInterval);
 		this.timer.pause();
 		
@@ -76,6 +77,7 @@
 	};
 
 	BrewHandler.prototype.unpause = function() {
+		alertMessage("Brew unpaused!", "warning");
 		var that = this;
 		this.timer.unpause();
 
