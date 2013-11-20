@@ -1,4 +1,4 @@
-About Brewklok (http://www.brewklok.com)
+## About Brewklok (http://www.brewklok.com)
 (It's freaking awesome!)
 
 Brewing beer is a great process. A lot of creativity and planning goes into every brew. However, if you're not careful it's easy to stray from your original recipe. The result will still undoubtedly taste great, but may not be what you were aiming for.

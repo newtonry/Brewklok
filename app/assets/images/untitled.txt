@@ -1,0 +1,17 @@
+A brew timer webapp that allows users to store, modify, and run recipes during the beer brewing process.  Created with Ruby on Rails, Javascript, and jQuery. <a href ='https://github.com/newtonry/Brewklok'>Github repo</a>
+<br /><br />
+<img src='media/appscreenshots/brewklok-ss-med.jpg'>
+
+
+
+
+
+
+
+
+
+
+
+
+An app to compliment Dig The Look and allow users to upload looks from their mobile devices.<br />It was built using <a href ='http://phonegap.com/'>Phonegap</a>, a platform that allows you to develop apps in javascript/html5 rather than natively.
+<br /><br /><img src='media/appscreenshots/dtl-androidapp.jpg'>
