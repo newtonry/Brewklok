@@ -35,10 +35,14 @@ h1, h2, h3, h4 {
 }
 
 #front-page-jumbo {
-	background: url('/assets/beer1-narrow.png');
+	background: url('/assets/beer1-narrow-sm.jpg');
 	background-repeat:no-repeat;
+	
+	background-size: cover;
+	
 	color: white;
 	margin-top: -20px;
+	width: 100%;
 }
 
 #futureIngredients .details {
@@ -158,4 +162,20 @@ h1, h2, h3, h4 {
 .jumbotron-info h1 {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
 	letter-spacing: 0px;
+}
+
+@media (max-width: 767px) { 
+	#index-logo {
+		display: none;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	#index-logo {
+		float: left;
+		width: 20%;
+	}
+	#index-info {
+		float:left;
+	}
 }
