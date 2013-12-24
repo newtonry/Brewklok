@@ -178,4 +178,30 @@ h1, h2, h3, h4 {
 	#index-info {
 		float:left;
 	}
+
+	#graph-container .col-md-10 {
+		float:left;
+		width:83.33%;
+	}
+
+	#graph-container .col-md-2 {
+		float:left;
+		width:16.66%;
+	}
+
+	.recipe-top .col-md-6 {
+		float:left;
+		width:50%;
+	}
+
+	.recipe-top .col-md-3 {
+		width:40%;
+		float:right;
+	}
+
+	.recipe-top .col-md-3 h1 {
+		margin-top: 0px;
+		margin-bottom: 5px;
+	}
 }
+
