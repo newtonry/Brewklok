@@ -11,7 +11,7 @@
 	Timer.prototype.timeToString = function(unixTime) {
 		var time = new Date(unixTime);
 	
-		var HH = this.convertToTwoDigits(time.getHours() - 16);//find out why this starts at 16
+		var HH = this.convertToTwoDigits(time.getHours() - new Date(0).getHours());
 		var MM = this.convertToTwoDigits(time.getMinutes());
 		var SS = this.convertToTwoDigits(time.getSeconds());
 		
